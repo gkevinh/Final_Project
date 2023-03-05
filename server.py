@@ -27,7 +27,7 @@ def homepage():
 def seed_db():
     seed_database.seed()
     return 'done'
-
+    
 # @app.route("/users")
 # def all_users():
 #     """View all movies."""
@@ -112,6 +112,23 @@ def find_venues():
                            results=businesses)
 
 
+# @app.route('/venues/search')
+# def call_yelp_api():
+#     """Search for venues"""
+
+#     endpoint = "https://api.yelp.com/v3/businesses/search"
+#     headers = {'Authorization': 'Bearer %s' % YELP_API_KEY}
+#     payload = {'limit' : '15', 'location' : '90404', 'categories' : 'desserts'}
+
+#     response = requests.get(endpoint, params=payload, headers=headers).json()
+
+#     pprint(response['businesses'])
+
+    # business_data = response.json()
+
+    # print(json.dumps(business_data, indent = 3))
+
+
 
 # @app.route('/event/<id>')
 # def get_event_details(id):
@@ -136,80 +153,12 @@ def find_venues():
 
 
 
-# @app.route('/')
-# def homepage():
-#     """Show homepage."""
+@app.route("/favorites")
+def all_favorites():
+    """View all favorites."""
 
-#     return render_template('homepage.html')
+    favorites = crud.get_favorites()
 
-
-# @app.route('/afterparty')
-# def show_afterparty_form():
-#     """Show event search form"""
-
-#     return render_template('search-form.html')
-
-
-# @app.route('/venues/search')
-# def call_yelp_api():
-#     """Search for venues"""
-
-#     endpoint = "https://api.yelp.com/v3/businesses/search"
-#     headers = {'Authorization': 'Bearer %s' % YELP_API_KEY}
-#     payload = {'limit' : '15', 'location' : '90404', 'categories' : 'desserts'}
-
-#     response = requests.get(endpoint, params=payload, headers=headers).json()
-
-#     pprint(response['businesses'])
-
-    # business_data = response.json()
-
-    # print(json.dumps(business_data, indent = 3))
-
-
-
-
-
-
-#-------------
-
-# @app.route("/")
-# def homepage():
-#     """View homepage."""
-
-#     return render_template("homepage.html")
-
-
-# @app.route("/movies")
-# def all_movies():
-#     """View all movies."""
-
-#     movies = crud.get_movies()
-
-#     return render_template("all_movies.html", movies=movies)
-
-
-# @app.route("/movies/<movie_id>")
-# def show_movie(movie_id):
-#     """Show details on a particular movie."""
-
-#     movie = crud.get_movie_by_id(movie_id)
-
-#     return render_template("movie_details.html", movie=movie)
-
-
-# @app.route("/users")
-# def all_users():
-#     """View all users."""
-
-#     users = crud.get_users()
-
-#     return render_template("all_users.html", users=users)
-
-
-
-
-#     return redirect("/")
 
 
 # @app.route("/users/<user_id>")
@@ -222,37 +171,7 @@ def find_venues():
 
 
 
-# @app.route("/update_rating", methods=["POST"])
-# def update_rating():
-#     rating_id = request.json["rating_id"]
-#     updated_score = request.json["updated_score"]
-#     crud.update_rating(rating_id, updated_score)
-#     db.session.commit()
 
-#     return "Success"
-
-# @app.route("/movies/<movie_id>/ratings", methods=["POST"])
-# def create_rating(movie_id):
-#     """Create a new rating for the movie."""
-
-#     logged_in_email = session.get("user_email")
-#     rating_score = request.form.get("rating")
-
-#     if logged_in_email is None:
-#         flash("You must log in to rate a movie.")
-#     elif not rating_score:
-#         flash("Error: you didn't select a score for your rating.")
-#     else:
-#         user = crud.get_user_by_email(logged_in_email)
-#         movie = crud.get_movie_by_id(movie_id)
-
-#         rating = crud.create_rating(user, movie, int(rating_score))
-#         db.session.add(rating)
-#         db.session.commit()
-
-#         flash(f"You rated this movie {rating_score} out of 5.")
-
-#     return redirect(f"/movies/{movie_id}")
 
 
 if __name__ == "__main__":
