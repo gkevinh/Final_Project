@@ -1,7 +1,7 @@
 from flask import (Flask, render_template, request, flash, session,
                    redirect)
 from model import connect_to_db, db
-import crud
+import crud, seed_database
 import os
 import requests
 from pprint import pprint
@@ -22,6 +22,11 @@ def homepage():
 
     return render_template('homepage.html')
 
+
+@app.route('/seed')
+def seed_db():
+    seed_database.seed()
+    return 'done'
 
 # @app.route("/users")
 # def all_users():
@@ -71,42 +76,40 @@ def process_login():
     return redirect("/")
 
 
+@app.route('/venue')
+def show_search_form():
+    """Show search form"""
 
-# @app.route('/venue')
-# def show_search_form():
-#     """Show search form"""
-
-#     return render_template('search-form.html')
+    return render_template('search-form.html')
 
 
-# @app.route('/venues/search')
-# def find_venues():
-#     """Search for dessert places"""
+@app.route('/venues/search')
+def find_venues():
+    """Search for dessert places"""
 
-#     keyword = request.args.get('keyword', '')
-#     postal_code = request.args.get('zip_code', '')
-#     radius = request.args.get('radius', '')
-#     sort = request.args.get('sort', '')
+    keyword = request.args.get('keyword', '')
+    postal_code = request.args.get('zipcode', '')
+    radius = request.args.get('radius', '')
+    sort = request.args.get('sort', '')
 
-#     url = 'https://api.yelp.com/v3/businesses/search'
-#     payload = {'apikey': YELP_API_KEY,
-#                'keyword': 'desserts',
-#                'postal_code': postal_code,
-#                'radius': radius,
-#                'sort': sort}
+    url = 'https://api.yelp.com/v3/businesses/search'
+    headers = {'Authorization': 'Bearer %s' % YELP_API_KEY}
+    payload = {'keyword': 'desserts',
+               'location': postal_code,
+               'radius': radius,
+               'sort': sort}
 
-#     response = requests.get(url, params=payload)
-#     data = response.json()
+    response = requests.get(url, params=payload, headers=headers).json()
 
-#     if '_embedded' in data:
-#         businesses = data['_embedded']['businesses']
-#     else:
-#         businesses = []
+    if '_embedded' in response:
+        businesses = data['_embedded']['businesses']
+    else:
+        businesses = []
 
-#     return render_template('search-results.html',
-#                            pformat=pformat,
-#                            data=data,
-#                            results=businesses)
+    return render_template('search-results.html',
+                           pformat=pformat,
+                           data=response,
+                           results=businesses)
 
 
 

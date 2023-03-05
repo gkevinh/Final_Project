@@ -2,7 +2,7 @@
 
 {% block title %}Ono Sweets{% endblock %}
 
-{% block content %}
+{% block body %}
   <div class="container">
     <div class="row">
       <div class="col d-flex justify-content-center">
@@ -24,7 +24,7 @@
 
           <p>
             <span id="result-count">
-              {{ data['page']['totalElements'] }}
+              {{ data['total'] }}
             </span>
             events matched your search.
           </p>
