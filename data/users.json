@@ -1,0 +1,20 @@
+[
+    {
+      "fname": "Kevin",
+      "lname": "Smith",
+      "password": "pencil",
+      "email": "one@gmail.com"
+    },
+    {
+      "fname": "James",
+      "lname": "Smith",
+      "password": "scissors",
+      "email": "two@gmail.com"
+    },
+    {
+      "fname": "Steve",
+      "lname": "Smith",
+      "password": "paper",
+      "email": "three@gmail.com"
+    }
+]

@@ -1,0 +1,14 @@
+[
+    {
+      "venue_name": "McDonald's",
+      "external_id": "first"
+    },
+    {
+      "venue_name": "Taco Bell",
+      "external_id": "second"
+    },
+    {
+      "venue_name": "Pizza Hut",
+      "external_id": "third"
+    }
+]

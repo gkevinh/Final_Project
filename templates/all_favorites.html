@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Favorites{% endblock %}
+
+{% block body %}
+  <h1>Favorites</h1>
+
+  <ul>
+    {% for favorite in favorites %}
+      <li>
+        <a href="/movies/{{ movie.movie_id }}">
+          {{ movie.title }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

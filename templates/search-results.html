@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Ono Sweets{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col d-flex justify-content-center">
+        <a href="/venue" class="lead backlink">
+          Go back to the search form
+        </a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div id="results-as-json">
+          <h2>Results as JSON</h2>
+          <pre>{{ pformat(data) }}</pre>
+        </div>
+
+        <div id="event-search-results">
+          <h2>Event Search Results</h2>
+
+          <p>
+            <span id="result-count">
+              {{ data['page']['totalElements'] }}
+            </span>
+            events matched your search.
+          </p>
+
+          <ul class="events-list list-group">
+            {% for event in results %}
+              <li class="list-group-item list-group-item-action">
+                <div class="row">
+                  <div class="col-2">
+                    <img src="{{ businesses['images'][0]['url'] }}">
+                  </div>
+
+                  <div class="col">
+                    <div class="d-flex w-100 justify-content-between">
+                      <a href="/businesses/{{ event['id'] }}" target="_blank">
+                        <h5>{{ businesses['name'] }}</h5>
+                      </a>
+                      <small>{{ businesses['dates']['start']['localDate'] }}</small>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
