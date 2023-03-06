@@ -171,6 +171,18 @@ def find_venues():
 # #     return render_template("user_details.html", user=user)
 
 
+@app.route("/map/directions")
+def get_directions():
+    """Demo of basic map-related code.
+
+    - Programmatically adding markers, info windows, and event handlers to a
+      Google Map
+    - Showing polylines, directions, etc.
+    """
+
+    return render_template("map.html")
+
+
 @app.route("/map/basic")
 def view_basic_map():
     """Demo of basic map-related code.

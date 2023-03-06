@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Directions</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/dstyles.css" />
+    <script src="/static/js/main.js"></script>
+  </head>
+  <body>
+   <div id="floating-panel">
+    <div>
+        <div>
+            <input type="text" id="from" placeholder="Origin">
+
+        </div>
+    </div>
+    <div>
+        <div>
+            <input type="text" id="to" placeholder="Destination">
+        </div>
+    </div>
+    <b> Mode of Travel </b>
+    <select id="mode">
+        <option value="DRIVING">Driving</option>
+        <option value="WALKING">Walking</option>
+    </select>
+   <!-- </div>  -->
+   <div id="map"></div>
+
+    <script>
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8p2SzMtIATGrROPu-00f_dolXZTYVHHw&callback=initMap">
+      async
+    </script>
+  </body>
+</html>
+
