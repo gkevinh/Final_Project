@@ -153,24 +153,45 @@ def find_venues():
 
 
 
-@app.route("/favorites")
-def all_favorites():
-    """View all favorites."""
+# @app.route("/favorites")
+# def all_favorites():
+#     """View all favorites."""
 
-    favorites = crud.get_favorites()
-
-
-
-# @app.route("/users/<user_id>")
-# def show_user(user_id):
-#     """Show details on a particular user."""
-
-#     user = crud.get_user_by_id(user_id)
-
-#     return render_template("user_details.html", user=user)
+#     favorites = crud.get_favorites()
 
 
 
+# # @app.route("/users/<user_id>")
+# # def show_user(user_id):
+# #     """Show details on a particular user."""
+
+# #     user = crud.get_user_by_id(user_id)
+
+# #     return render_template("user_details.html", user=user)
+
+
+@app.route("/map/basic")
+def view_basic_map():
+    """Demo of basic map-related code.
+
+    - Programmatically adding markers, info windows, and event handlers to a
+      Google Map
+    - Showing polylines, directions, etc.
+    """
+
+    return render_template("map-basic.html")
+
+
+@app.route("/map/more")
+def view_more_demos():
+    """Demo of basic map-related code.
+
+    - Programmatically adding markers, info windows, and event handlers to a
+      Google Map
+    - Showing polylines, directions, etc.
+    """
+
+    return render_template("map-more.html")
 
 
 
