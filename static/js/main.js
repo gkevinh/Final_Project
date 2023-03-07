@@ -32,3 +32,4 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer){
 
 }
 
+function initMap(){}

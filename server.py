@@ -95,7 +95,9 @@ def find_venues():
 
     url = 'https://api.yelp.com/v3/businesses/search'
     headers = {'Authorization': 'Bearer %s' % YELP_API_KEY}
-    payload = {'keyword': 'desserts',
+    payload = {'limit': '30',
+               'keyword': 'desserts',
+               'term': 'desserts',
                'location': postal_code,
                'radius': radius,
                'sort': sort}

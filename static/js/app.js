@@ -22,4 +22,5 @@ function success(position) {
 
 }
 
+function initMap(){}
 function failure(){}

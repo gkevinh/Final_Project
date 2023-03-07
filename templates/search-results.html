@@ -20,13 +20,13 @@
         </div>
 
         <div id="event-search-results">
-          <h2>Event Search Results</h2>
+          <h2>Venue Search Results</h2>
 
           <p>
             <span id="result-count">
               {{ data['total'] }}
             </span>
-            events matched your search.
+            venues matched your search.
           </p>
 
           <ul class="events-list list-group">
@@ -34,15 +34,15 @@
               <li class="list-group-item list-group-item-action">
                 <div class="row">
                   <div class="col-2">
-                    <img src="{{ businesses['images'][0]['url'] }}">
+                    <img src="{{ businesses['url'] }}">
                   </div>
 
                   <div class="col">
                     <div class="d-flex w-100 justify-content-between">
-                      <a href="/businesses/{{ event['id'] }}" target="_blank">
+                      <a href="/businesses/{{ 'id' }}" target="_blank">
                         <h5>{{ businesses['name'] }}</h5>
                       </a>
-                      <small>{{ businesses['dates']['start']['localDate'] }}</small>
+                      <small>{{ businesses['url']['phone']['rating']['location'] }}</small>
                     </div>
                   </div>
                 </div>
