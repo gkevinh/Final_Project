@@ -42,9 +42,10 @@
                         <h5>{{ business['name'] }}</h5>
                       </a>
                        <img src="{{ business['image_url'] }}">
-                        <p>{{business['phone']}}</p>
-                        <p>{{business['rating']}}</p> 
-                        <p>{{business['location']['display_address']}}</p>
+                        <p>phone: {{business['phone']}}</p>
+                        <p>rating: {{business['rating']}}</p> 
+                        <p>address: {{business['location']['display_address']}}</p>
+                        <p>review count: {{business['review_count']}}</p>
                     </div>
                   </div>
                 </div>

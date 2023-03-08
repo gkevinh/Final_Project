@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Venue Details | {{ business['name'] }}{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>{{ business['name'] }}</h2>
+
+      <p>
+        <!-- {% if 'description' in business %}
+          {{ event['description'] }}
+        {% else %}
+          No description available.
+        {% endif %}
+      </p> -->
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col col-md-4">
+      <img src="{{ business['image_url'] }}">
+
+      <p>
+        <a href="{{ business['url'] }}" target="_blank">
+        </a>
+      </p>
+    </div>
+
+    <div class="col">
+      <h3></h3>
+      <p>phone: {{business['phone']}}</p>
+      <p>rating: {{business['rating']}}</p> 
+      <p>address: {{business['location']['display_address']}}</p>
+      <p>review count: {{business['review_count']}}</p>
+
+      <h3>Venues</h3>
+      <ul>
+        {% for venue in venues %}
+          <li>{{ business['name'] }}</li>
+        {% endfor %}
+      </ul>
+
+      <!-- <h3>Classifications</h3>
+      <ul>
+        {% for classification in event['classifications'] %}
+          <li>{{ classification['genre']['name'] }}</li>
+        {% endfor %} -->
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

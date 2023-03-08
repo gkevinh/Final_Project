@@ -115,6 +115,38 @@ def find_venues():
                            businesses=businesses)
 
 
+@app.route('/event/<id>')
+def get_event_details(id):
+    """View the details of an event."""
+
+    url = f'https://api.yelp.com/v3/businesses/{id}'
+    headers = {'Authorization': 'Bearer %s' % YELP_API_KEY}
+    payload = {'apikey': YELP_API_KEY}
+
+    response = requests.get(url, params=payload, headers=headers).json()
+
+    if 'businesses' in response:
+        businesses = response['businesses']
+    else:
+        businesses = []
+
+    return render_template('event-details.html',
+                           data=response,
+                           businesses=businesses)
+
+
+
+    # payload = {'limit': '30',
+    #            'keyword': keyword,
+    #            'term': 'desserts',
+    #            'location': postal_code,
+    #            'radius': radius,
+    #            'sort': sort}
+
+    
+
+
+
 # @app.route('/venues/search')
 # def call_yelp_api():
 #     """Search for venues"""
@@ -133,24 +165,6 @@ def find_venues():
 
 
 
-# @app.route('/event/<id>')
-# def get_event_details(id):
-#     """View the details of an event."""
-
-#     url = f'https://app.ticketmaster.com/discovery/v2/events/{id}'
-#     payload = {'apikey': API_KEY}
-
-#     response = requests.get(url, params=payload)
-#     event = response.json()
-
-#     if '_embedded' in event:
-#         venues = event['_embedded']['venues']
-#     else:
-#         venues = []
-
-#     return render_template('event-details.html',
-#                            event=event,
-#                            venues=venues)
 
 
 
