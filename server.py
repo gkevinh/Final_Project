@@ -4,7 +4,7 @@ from model import connect_to_db, db
 import crud, seed_database
 import os
 import requests
-from pprint import pprint
+# from pprint import pprint
 from pprint import pformat
 import json
 
@@ -96,7 +96,7 @@ def find_venues():
     url = 'https://api.yelp.com/v3/businesses/search'
     headers = {'Authorization': 'Bearer %s' % YELP_API_KEY}
     payload = {'limit': '30',
-               'keyword': 'desserts',
+               'keyword': keyword,
                'term': 'desserts',
                'location': postal_code,
                'radius': radius,
@@ -104,15 +104,15 @@ def find_venues():
 
     response = requests.get(url, params=payload, headers=headers).json()
 
-    if '_embedded' in response:
-        businesses = data['_embedded']['businesses']
+    if 'businesses' in response:
+        businesses = response['businesses']
     else:
         businesses = []
 
     return render_template('search-results.html',
                            pformat=pformat,
                            data=response,
-                           results=businesses)
+                           businesses=businesses)
 
 
 # @app.route('/venues/search')

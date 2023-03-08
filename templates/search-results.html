@@ -30,19 +30,21 @@
           </p>
 
           <ul class="events-list list-group">
-            {% for event in results %}
+            {% for business in businesses %}
               <li class="list-group-item list-group-item-action">
                 <div class="row">
                   <div class="col-2">
-                    <img src="{{ businesses['url'] }}">
                   </div>
 
                   <div class="col">
                     <div class="d-flex w-100 justify-content-between">
                       <a href="/businesses/{{ 'id' }}" target="_blank">
-                        <h5>{{ businesses['name'] }}</h5>
+                        <h5>{{ business['name'] }}</h5>
                       </a>
-                      <small>{{ businesses['url']['phone']['rating']['location'] }}</small>
+                       <img src="{{ business['image_url'] }}">
+                        <p>{{business['phone']}}</p>
+                        <p>{{business['rating']}}</p> 
+                        <p>{{business['location']['display_address']}}</p>
                     </div>
                   </div>
                 </div>

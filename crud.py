@@ -61,8 +61,7 @@ def save_as_favorite(user_id, venue_id, notes):
     """Save and return a favorite."""
 
     favorite = Favorite(user_id=user_id, venue_id=venue_id, notes=notes)
-    db.session.add(favorite)
-    db.session.commit()
+
     return favorite
 
 
