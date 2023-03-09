@@ -3,7 +3,7 @@
   padding-top: 0.8em;
   text-align: center;
   font-size: 3em;
-  background: pink url(/static/img/beach.png) no-repeat right;
+  background: pink url(/static/img/dessert.jpg) no-repeat right;
   background-size: 220px 210px;
   justify-content: center;
   align-items: center;
@@ -45,3 +45,5 @@ th {
   margin-bottom: 0;
   margin-top: 10px;
 }
+
+

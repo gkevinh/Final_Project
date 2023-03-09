@@ -115,11 +115,11 @@ def find_venues():
                            businesses=businesses)
 
 
-@app.route('/event/<id>')
-def get_event_details(id):
-    """View the details of an event."""
+@app.route('/venue/<id>')
+def get_venue_details(id):
+    """View the details of a venue."""
 
-    url = f'https://api.yelp.com/v3/businesses/{id}'
+    url = 'https://api.yelp.com/v3/businesses/{id}'
     headers = {'Authorization': 'Bearer %s' % YELP_API_KEY}
     payload = {'apikey': YELP_API_KEY}
 
@@ -130,7 +130,7 @@ def get_event_details(id):
     else:
         businesses = []
 
-    return render_template('event-details.html',
+    return render_template('venue-details.html',
                            data=response,
                            businesses=businesses)
 
