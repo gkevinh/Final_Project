@@ -119,20 +119,14 @@ def find_venues():
 def get_venue_details(id):
     """View the details of a venue."""
 
-    url = 'https://api.yelp.com/v3/businesses/{id}'
+    url = f'https://api.yelp.com/v3/businesses/{id}'
     headers = {'Authorization': 'Bearer %s' % YELP_API_KEY}
     payload = {'apikey': YELP_API_KEY}
 
     response = requests.get(url, params=payload, headers=headers).json()
 
-    if 'businesses' in response:
-        businesses = response['businesses']
-    else:
-        businesses = []
-
     return render_template('venue-details.html',
-                           data=response,
-                           businesses=businesses)
+                           business=response)
 
 
 

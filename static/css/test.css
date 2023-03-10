@@ -10,8 +10,18 @@
   margin-bottom: 0.67em;
 }
 
-img {
-  width: 20%;
+img{
+  width:20%;
+  height:auto;
+  border:1pt solid rgb(50, 48, 48);
+}
+
+.cover{
+  object-fit: cover;
+  object-position: center;
+}
+.contain{
+  object-fit: contain;
 }
 
 pre {
@@ -45,5 +55,3 @@ th {
   margin-bottom: 0;
   margin-top: 10px;
 }
-
-
