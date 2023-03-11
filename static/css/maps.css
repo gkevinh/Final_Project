@@ -16,8 +16,8 @@ html, body {
   }
   
   h1 {
-    background-color: rgb(166, 137, 255);
-    color: rgb(22, 78, 131);
+    background-color: rgb(128, 128, 128);
+    color: rgb(98, 205, 255); 
     text-transform: uppercase;
     font-weight: 700;
     padding: 10px;

@@ -96,7 +96,7 @@ def find_venues():
     url = 'https://api.yelp.com/v3/businesses/search'
     headers = {'Authorization': 'Bearer %s' % YELP_API_KEY}
     payload = {'limit': '30',
-               'keyword': keyword,
+               'keyword': 'desserts',
                'term': 'desserts',
                'location': postal_code,
                'radius': radius,
@@ -127,6 +127,11 @@ def get_venue_details(id):
 
     return render_template('venue-details.html',
                            business=response)
+
+
+# @app.route('/map')
+# def give_directions()
+
 
 
 

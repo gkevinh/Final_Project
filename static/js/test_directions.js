@@ -1,36 +1,4 @@
-
-  document.querySelector('#display-directions').addEventListener('click', () => {
-    const directionsService = new google.maps.DirectionsService();
-
-    // The DirectionsRenderer object is in charge of drawing directions
-    // on maps
-    const directionsRenderer = new google.maps.DirectionsRenderer();
-    directionsRenderer.setMap(map);
-
-    const directions = {
-      origin: {
-        lat: 37.7887459,
-        lng: -122.4115852,
-      },
-      destination: {
-        lat: 37.7844605,
-        lng: -122.4079702,
-      },
-      travelMode: 'DRIVING',
-    };
-
-    directionsService.route(directions, (response, status) => {
-      if (status === 'OK') {
-        directionsRenderer.setDirections(response);
-      } else {
-        alert(`Directions request unsuccessful due to: ${status}`);
-      }
-    });
-  });
-
-
-
-  function initMap() {
+function initMap() {
     var pointA = new google.maps.LatLng(51.7519, -1.2578),
       pointB = new google.maps.LatLng(50.8429, -0.1313),
       myOptions = {
@@ -77,4 +45,3 @@
     });
   }
   
-  initMap();
