@@ -55,3 +55,27 @@ th {
   margin-bottom: 0;
   margin-top: 10px;
 }
+
+
+button, input[type="button"], input[type="submit"] { 
+  color:#050; 
+  font: bold 84% 'trebuchet ms',helvetica,sans-serif; 
+  background-color:#fed; 
+  border:1px solid; 
+  border-color: #696 #363 #363 #696; 
+} 
+
+.btn-primary {
+  color:#050; 
+  font: bold 84% 'trebuchet ms',helvetica,sans-serif; 
+  background-color:#fed; 
+  border:1px solid; 
+  border-color: #696 #363 #363 #696; 
+}
+
+
+.btn-primary:hover {
+  background-color: rgb(189, 188, 112);
+  color:rgb(75, 83, 32);
+}
+

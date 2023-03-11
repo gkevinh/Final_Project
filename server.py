@@ -54,7 +54,7 @@ def register_user():
         user = crud.create_user(fname, lname, email, password)
         db.session.add(user)
         db.session.commit()
-        flash("Account created! Please log in.")
+        flash("Account created. Please log in.")
 
     return redirect("/")
 
@@ -72,7 +72,7 @@ def process_login():
     else:
         # Log in user by storing the user's email in session
         session["user_email"] = user.email
-        flash(f"Welcome back, {user.fname}!")
+        flash(f"Welcome back, {user.fname}")
 
     return redirect("/")
 
@@ -129,22 +129,6 @@ def get_venue_details(id):
                            business=response)
 
 
-# @app.route('/map')
-# def give_directions()
-
-
-
-
-    # payload = {'limit': '30',
-    #            'keyword': keyword,
-    #            'term': 'desserts',
-    #            'location': postal_code,
-    #            'radius': radius,
-    #            'sort': sort}
-
-    
-
-
 
 # @app.route('/venues/search')
 # def call_yelp_api():
@@ -161,9 +145,6 @@ def get_venue_details(id):
     # business_data = response.json()
 
     # print(json.dumps(business_data, indent = 3))
-
-
-
 
 
 
@@ -188,38 +169,9 @@ def get_venue_details(id):
 
 @app.route("/map/directions")
 def get_directions():
-    """Demo of basic map-related code.
-
-    - Programmatically adding markers, info windows, and event handlers to a
-      Google Map
-    - Showing polylines, directions, etc.
-    """
+    """Creates map and directions."""
 
     return render_template("map.html")
-
-
-@app.route("/map/basic")
-def view_basic_map():
-    """Demo of basic map-related code.
-
-    - Programmatically adding markers, info windows, and event handlers to a
-      Google Map
-    - Showing polylines, directions, etc.
-    """
-
-    return render_template("map-basic.html")
-
-
-@app.route("/map/more")
-def view_more_demos():
-    """Demo of basic map-related code.
-
-    - Programmatically adding markers, info windows, and event handlers to a
-      Google Map
-    - Showing polylines, directions, etc.
-    """
-
-    return render_template("map-more.html")
 
 
 

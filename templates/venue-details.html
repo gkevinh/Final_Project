@@ -25,9 +25,11 @@
       <p>rating: {{business['rating']}}</p> 
       <p>address: {{business['location']['display_address']}}</p>
       <p>review count: {{business['review_count']}}</p>
+
     </div>
     <p>
-      <a class="btn btn-primary" href="/map">
+      <br>
+      <a class="btn btn-primary" href="/map/directions">
         Click here for directions
         <br>
       </a>
@@ -38,6 +40,8 @@
         <br>
       </a>
     </p>
+
+    
   </div>
 </div>
 {% endblock %}
