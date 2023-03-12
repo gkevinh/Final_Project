@@ -125,6 +125,9 @@ def get_venue_details(id):
 
     response = requests.get(url, params=payload, headers=headers).json()
 
+    # lat = response.latitude
+    # long = response.longitude
+
     return render_template('venue-details.html',
                            business=response)
 
@@ -177,4 +180,5 @@ def get_directions():
 
 if __name__ == "__main__":
     connect_to_db(app)
+    print("http://localhost:5000/")
     app.run(host="0.0.0.0", debug=True)
