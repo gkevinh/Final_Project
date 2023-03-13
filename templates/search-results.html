@@ -20,48 +20,51 @@
       <br>
     </div>
 
-    <!-- <div class="row">
-      <div class="col">
-        <div id="results-as-json">
-          <h2>Results as JSON</h2>
-          <pre>{{ pformat(data) }}</pre>
-        </div> -->
+    <div id="event-search-results">
+      <h2>Venue Search Results</h2>
 
-        <div id="event-search-results">
-          <h2>Venue Search Results</h2>
+      <p>
+        <span id="result-count">
+          {{ data['total'] }}
+        </span>
+        results
+      </p>
 
-          <p>
-            <span id="result-count">
-              {{ data['total'] }}
-            </span>
-            results
-          </p>
+      <ul class="events-list list-group">
+        {% for business in businesses %}
+          <li class="list-group-item list-group-item-action">
+            <div class="row">
+              <div class="col-md-3">
+                <a href="/venue/{{ business['id'] }}" target="_blank">
+                  <img src="{{ business['image_url'] }}" style="width: 200px; height: 200px; object-fit: cover;">
+                </a>
+              </div>
 
-          <ul class="events-list list-group">
-            {% for business in businesses %}
-              <li class="list-group-item list-group-item-action">
+              <div class="col-md-9">
                 <div class="row">
-                  <div class="col-2">
+                  <div class="col-md-6">
+                    <a href="/venue/{{ business['id'] }}" target="_blank">
+                      <h5>{{ business['name'] }}</h5>
+                    </a>
+                    <h6>Phone: {{ '(' + business['phone'][2:5] + ') ' + business['phone'][5:8] + '-' + business['phone'][8:] }}</h6>
                   </div>
 
-                  <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                      <a href="/venue/{{ business['id'] }}" target="_blank">
-                        <img src="{{ business['image_url'] }}">
-                        <h5>{{ business['name'] }}</h5>
-                      </a>
-                        <h6>phone: {{business['phone']}}</h6>
-                        <h6>rating: {{business['rating']}}</h6> 
-                        <h6>address: {{business['location']['display_address']}}</h6>
-                        <h6>review count: {{business['review_count']}}</h6>
-                    </div>
+                  <div class="col-md-6">
+                    <h6>Rating: {{ business['rating'] }}</h6>
+                    <h6>Review Count: {{ business['review_count'] }}</h6>
                   </div>
                 </div>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <h6>{{ business['location']['address1'] }}<br>{{ business['location']['city'] }}, {{ business['location']['state'] }} {{ business['location']['zip_code'] }}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
     </div>
   </div>
 {% endblock %}

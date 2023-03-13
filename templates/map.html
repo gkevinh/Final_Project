@@ -1,3 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Directions | {{ business['name'] }}{% endblock %}
+
+{% block body %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,18 +12,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Directions</title>
 
-<link rel="stylesheet" href="/static/css/maps.css">
-</head>
-<body>
-    <h1>Directions</h1>
+    <link rel="stylesheet" href="/static/css/maps.css">
+  </head>
+  <body>
+    <div id="map-container">
+      <div id="map"></div>
+      <div id="directions-panel"></div>
+    </div>
     <input type=hidden id="lat" value="{{business['coordinates']['latitude']}}" />
     <input type=hidden id="long" value="{{business['coordinates']['longitude']}}" />
-    <div id="map" ></div>
+
+    <a class="btn btn-primary" href="/venues/search">
+      Search
+      <br>
 
     <script src="/static/js/app.js"></script>
-    <script
-    async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8p2SzMtIATGrROPu-00f_dolXZTYVHHw&callback=initMap">
-    </script>
-</body>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8p2SzMtIATGrROPu-00f_dolXZTYVHHw&callback=initMap"></script>
+  </body>
 </html>
+{% endblock %}
+
+
+

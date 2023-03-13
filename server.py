@@ -169,6 +169,30 @@ def get_venue_details(id):
 # #     return render_template("user_details.html", user=user)
 
 
+@app.route('/add_favorite', methods=["POST"])
+def add_favorite():
+    """Add venue to favorites."""
+
+    user_email = session["user_email"]
+    venue_id = request.form.get("venue_id")
+
+    user = crud.get_user_by_email(user_email)
+    venue = crud.get_venue_by_id(venue_id)
+
+    if not user:
+        flash("You must be logged in to add favorites.")
+    elif not venue:
+        flash("Venue not found.")
+    else:
+        crud.create_favorite(user, venue)
+        flash("Venue added to favorites.")
+
+    return redirect("/")
+
+
+
+
+
 @app.route('/map/directions/<id>')
 def get_directions(id):
     """Creates map and directions."""
@@ -181,6 +205,13 @@ def get_directions(id):
     return render_template("map.html",
                         business=response)
 
+
+@app.route('/logout')
+def logout():
+    """Logout"""
+
+    session.pop('user')
+    return redirect("/")
 
 
 if __name__ == "__main__":
