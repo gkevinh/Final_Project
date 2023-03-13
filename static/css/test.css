@@ -3,15 +3,24 @@
   padding-top: 0.8em;
   text-align: center;
   font-size: 3em;
-  background: pink url(/static/img/dessert.jpg) no-repeat right;
   background-size: 220px 210px;
   justify-content: center;
   align-items: center;
   margin-bottom: 0.67em;
 }
 
+.body {
+  height: 160px;
+  padding-top: 0.8em;
+  text-align: center;
+  font-size: 3em;
+  background-size: 220px 210px;
+  align-items: center;
+  margin-bottom: 0.67em;
+}
+
 img{
-  width:20%;
+  width:41%;
   height:auto;
   border:1pt solid rgb(50, 48, 48);
 }
@@ -71,6 +80,7 @@ button, input[type="button"], input[type="submit"] {
   background-color:#fed; 
   border:1px solid; 
   border-color: #696 #363 #363 #696; 
+  margin: 5px;
 }
 
 
@@ -78,4 +88,3 @@ button, input[type="button"], input[type="submit"] {
   background-color: rgb(189, 188, 112);
   color:rgb(75, 83, 32);
 }
-

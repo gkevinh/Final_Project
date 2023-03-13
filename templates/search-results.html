@@ -3,13 +3,21 @@
 {% block title %}Ono Sweets{% endblock %}
 
 {% block body %}
+  <br>
   <div class="container">
     <div class="row">
       <div class="col d-flex justify-content-center">
         <a href="/venue" class="lead backlink">
-          Go back to the search form
+          Search
+        </a>
+        &nbsp &nbsp &nbsp &nbsp
+        <a href="/" class="lead backlink">
+          Home
         </a>
       </div>
+      <br>
+      <br>
+      <br>
     </div>
 
     <!-- <div class="row">
@@ -26,7 +34,7 @@
             <span id="result-count">
               {{ data['total'] }}
             </span>
-            venues matched your search.
+            results
           </p>
 
           <ul class="events-list list-group">
@@ -39,13 +47,13 @@
                   <div class="col">
                     <div class="d-flex w-100 justify-content-between">
                       <a href="/venue/{{ business['id'] }}" target="_blank">
+                        <img src="{{ business['image_url'] }}">
                         <h5>{{ business['name'] }}</h5>
                       </a>
-                       <img src="{{ business['image_url'] }}">
-                        <p>phone: {{business['phone']}}</p>
-                        <p>rating: {{business['rating']}}</p> 
-                        <p>address: {{business['location']['display_address']}}</p>
-                        <p>review count: {{business['review_count']}}</p>
+                        <h6>phone: {{business['phone']}}</h6>
+                        <h6>rating: {{business['rating']}}</h6> 
+                        <h6>address: {{business['location']['display_address']}}</h6>
+                        <h6>review count: {{business['review_count']}}</h6>
                     </div>
                   </div>
                 </div>
