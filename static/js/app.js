@@ -51,35 +51,6 @@ function success(position) {
         alert(`Directions request unsuccessful due to: ${status}`);
         }
     });
-    directionsRenderer.setMap(map);
-    directionsRenderer.setPanel(document.getElementById("sidebar"));
-
-    const control = document.getElementById("floating-panel");
-
-    map.controls[google.maps.ControlPosition.TOP_CENTER].push(control);
-
-    const onChangeHandler = function () {
-        calculateAndDisplayRoute(directionsService, directionsRenderer);
-    };
-
-    document.getElementById("start").addEventListener("change", onChangeHandler);
-    document.getElementById("end").addEventListener("change", onChangeHandler);
-
-    function calculateAndDisplayRoute(directionsService, directionsRenderer) {
-        const start = document.getElementById("origin").value;
-        const end = document.getElementById("destination").value;
-      
-        directionsService
-          .route({
-            origin: start,
-            destination: end,
-            travelMode: google.maps.TravelMode.DRIVING,
-          })
-          .then((response) => {
-            directionsRenderer.setDirections(response);
-          })
-          .catch((e) => window.alert("Directions request failed due to " + status));
-      }
 }
 
 function initMap(){}
