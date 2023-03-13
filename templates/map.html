@@ -10,7 +10,8 @@
 </head>
 <body>
     <h1>Directions</h1>
-
+    <input type=hidden id="lat" value="{{business['coordinates']['latitude']}}" />
+    <input type=hidden id="long" value="{{business['coordinates']['longitude']}}" />
     <div id="map" ></div>
 
     <script src="/static/js/app.js"></script>

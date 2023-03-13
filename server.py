@@ -125,9 +125,8 @@ def get_venue_details(id):
 
     response = requests.get(url, params=payload, headers=headers).json()
 
-    # lat = response.latitude
-    # long = response.longitude
-
+# save the values into hidden elements with unique id’s you can pull the values out of them
+    
     return render_template('venue-details.html',
                            business=response)
 
@@ -170,11 +169,17 @@ def get_venue_details(id):
 # #     return render_template("user_details.html", user=user)
 
 
-@app.route("/map/directions")
-def get_directions():
+@app.route('/map/directions/<id>')
+def get_directions(id):
     """Creates map and directions."""
+    url = f'https://api.yelp.com/v3/businesses/{id}'
+    headers = {'Authorization': 'Bearer %s' % YELP_API_KEY}
+    payload = {'apikey': YELP_API_KEY}
 
-    return render_template("map.html")
+    response = requests.get(url, params=payload, headers=headers).json()
+
+    return render_template("map.html",
+                        business=response)
 
 
 

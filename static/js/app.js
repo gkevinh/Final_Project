@@ -2,6 +2,10 @@ x=navigator.geolocation
 
 x.getCurrentPosition(success, failure);
 
+const latitude = document.getElementById("lat").value * 1;
+const longitude = document.getElementById("long").value * 1;
+
+
 function success(position) {
     let myLat = position.coords.latitude;
     let myLong = position.coords.longitude;
@@ -34,8 +38,8 @@ function success(position) {
         lng: myLong,
         },
         destination: {
-        lat: 34.1122,
-        lng: -118.3391,
+        lat: latitude,
+        lng: longitude,
         },
         travelMode: 'DRIVING',
     };
