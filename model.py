@@ -44,7 +44,6 @@ class Favorite(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     saved_at = db.Column(db.DateTime, default=datetime.utcnow)
     venue_id = db.Column(db.Integer, db.ForeignKey("venues.id"), nullable=False)
-    notes = db.Column(db.Text)
 
     user = db.relationship("User", back_populates="favorites")
     venue = db.relationship("Venue", back_populates="favorites")

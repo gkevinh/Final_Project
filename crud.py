@@ -2,14 +2,14 @@
 
 from model import db, User, Favorite, Venue, connect_to_db
 from datetime import datetime
+from flask import Flask, render_template, request, redirect, session, flash
+
 
 
 def create_user(fname, lname, email,password):
     """Create and return a new user."""
 
     user = User(fname=fname, lname=lname, email=email, password=password)
-    # db.session.add(user)
-    # db.session.commit()
     return user
 
 
@@ -31,20 +31,6 @@ def get_users():
     return User.query.all()
 
 
-def create_venue(venue_name, external_id):
-    """Create and return a new venue."""
-
-    venue = Venue(venue_name=venue_name, external_id=external_id)
-
-    return venue
-
-
-def get_all_venues():
-    """Return all venues."""
-
-    return Venue.query.all()
-
-
 def get_venue_by_id(id):
     """Return a venue by primary key."""
 
@@ -57,22 +43,27 @@ def get_favorites():
     return Favorite.query.all()
 
 
-def save_as_favorite(user_id, venue_id, notes):
+def save_as_favorite(user_id, venue_id):
     """Save and return a favorite."""
 
-    favorite = Favorite(user_id=user_id, venue_id=venue_id, notes=notes)
+    favorite = Favorite(user_id=user_id, venue_id=venue_id)
 
     return favorite
 
 
-
 # def remove_favorite(id):
 #     """ Remove favorite from Favorites. """
-#     # create "Are you sure you want to delete?"
-#     favorite = Favorite.query.filter(id).delete()
-#     db.session.commit()
+#     favorite = Favorite.query.filter(Favorite.id == id).first()
 
-#     Favorite.query.filter_by(favorites.id).delete()
+#     if not favorite:
+#         flash("Favorite not found.")
+#     else:
+#         db.session.delete(favorite)
+#         db.session.commit()
+#         flash("Favorite removed.")
+
+    # return redirect("/")
+
 
 
 if __name__ == "__main__":

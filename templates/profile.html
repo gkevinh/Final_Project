@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}User Profile{% endblock %}
+
+{% block body %}
+  <h2>{{ user.fname }} {{ user.lname }}</h2>
+  <p><strong>Email:</strong> {{ user.email }}</p>
+
+  <h3>Favorites</h3>
+  {% if favorites %}
+    <ul>
+      {% for favorite in favorites %}
+        <li>{{ favorite.venue.name }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No favorites yet.</p>
+  {% endif %}
+
+  <div class="d-inline-block">
+    <a class="btn btn-primary" href="/">Home</a>
+  </div>
+<br>
+<br>
+  <div class="d-inline-block">
+    <a class="btn btn-primary" href="/venue">Search</a>
+  </div>
+
+  <br>
+
+{% endblock %}

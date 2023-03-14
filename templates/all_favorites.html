@@ -1,16 +1,30 @@
 {% extends 'base.html' %}
-{% block title %}Favorites{% endblock %}
+{% block title %}My Favorites{% endblock %}
 
 {% block body %}
-  <h1>Favorites</h1>
 
-  <ul>
-    {% for favorite in favorites %}
-      <li>
-        <a href="/favorites/{{ favorite.favorite_id }}">
-          {{ movie.title }}
-        </a>
-      </li>
+  <!DOCTYPE html>
+  <html>
+    <body>
+      <h1>My Favorite Venues</h1>
+      {% if favorites %}
+        <ul>
+          {% for favorite in favorites %}
+            <li>
+              <h2>{{ favorite.venue.name }}</h2>
+              <p>{{ favorite.notes }}</p>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>You haven't added any favorites yet!</p>
+      {% endif %}
+    </body>
+  </html>
     {% endfor %}
-  </ul>
+ 
 {% endblock %}
+
+
+
+

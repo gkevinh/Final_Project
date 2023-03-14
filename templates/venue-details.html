@@ -20,11 +20,11 @@
     </div>
 
     <div class="col">
-      <h3></h3>
-      <p>phone: {{business['phone']}}</p>
-      <p>rating: {{business['rating']}}</p> 
-      <p>address: {{business['location']['display_address']}}</p>
-      <p>review count: {{business['review_count']}}</p>
+      <h6></h6>
+      <h6>{{ '(' + business['phone'][2:5] + ') ' + business['phone'][5:8] + '-' + business['phone'][8:] }}</h6>
+      <h6>{{ business['location']['address1'] }}<br>{{ business['location']['city'] }}, {{ business['location']['state'] }} {{ business['location']['zip_code'] }}</h6>
+      <h6>rating: {{business['rating']}}</h6> 
+      <h6>review count: {{business['review_count']}}</h6>
       <p hidden> {{ business['coordinates']}}</p>   
 
     </div>
@@ -32,15 +32,13 @@
       <br>
       <a class="btn btn-primary" href="/map/directions/{{ business['id'] }}">
         Directions
-
       </a>
     </p>
-    <p>
-      <a class="btn btn-primary" href="/add_favorite">
-        Add Favorite
-
-      </a>
-
+      <p>
+        <a class="btn btn-primary" href="/add_favorite/{{ business['id'] }}" method="POST">
+          Add Favorite
+        </a>
+      </p>
       <p>
       <a class="btn btn-primary" href="/">
         Home

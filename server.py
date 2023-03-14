@@ -1,5 +1,5 @@
 from flask import (Flask, render_template, request, flash, session,
-                   redirect)
+                   redirect, url_for)
 from model import connect_to_db, db
 import crud, seed_database
 import os
@@ -28,14 +28,6 @@ def homepage():
 def seed_db():
     seed_database.seed()
     return 'done'
-    
-# @app.route("/users")
-# def all_users():
-#     """View all movies."""
-
-#     users = crud.get_users()
-
-#     return render_template("all_users.html", users=users)
 
 
 @app.route("/user", methods=["POST"])
@@ -125,10 +117,36 @@ def get_venue_details(id):
 
     response = requests.get(url, params=payload, headers=headers).json()
 
-# save the values into hidden elements with unique id’s you can pull the values out of them
-    
     return render_template('venue-details.html',
-                           business=response)
+                            business=response)
+
+
+@app.route('/map/directions/<id>')
+def get_directions(id):
+    """Creates map and directions."""
+    url = f'https://api.yelp.com/v3/businesses/{id}'
+    headers = {'Authorization': 'Bearer %s' % YELP_API_KEY}
+    payload = {'apikey': YELP_API_KEY}
+
+    response = requests.get(url, params=payload, headers=headers).json()
+
+    return render_template("map.html",
+                            business=response)
+
+
+@app.route('/profile')
+def view_profile():
+    """View user's profile page."""
+    
+    user_email = session.get('user_email')
+    if not user_email:
+        flash('You must be logged in to view your profile.')
+        return redirect('/')
+    
+    user = crud.get_user_by_email(user_email)
+    favorites = user.favorites
+    
+    return render_template('profile.html', user=user, favorites=favorites)
 
 
 
@@ -152,58 +170,57 @@ def get_venue_details(id):
 
 
 
-# @app.route("/favorites")
-# def all_favorites():
-#     """View all favorites."""
-
-#     favorites = crud.get_favorites()
-
-
-
-# # @app.route("/users/<user_id>")
-# # def show_user(user_id):
-# #     """Show details on a particular user."""
-
-# #     user = crud.get_user_by_id(user_id)
-
-# #     return render_template("user_details.html", user=user)
-
-
-@app.route('/add_favorite', methods=["POST"])
-def add_favorite():
+@app.route('/add_favorite/venue/<id>', methods=["POST"])
+def add_favorite(id):
     """Add venue to favorites."""
 
-    user_email = session["user_email"]
-    venue_id = request.form.get("venue_id")
+    user_email = session.get("user_email")
+    if not user_email:
+        flash("You must be logged in to add favorites.")
+        return redirect("/")
 
     user = crud.get_user_by_email(user_email)
-    venue = crud.get_venue_by_id(venue_id)
+    venue = crud.get_venue_by_id(id)
 
-    if not user:
-        flash("You must be logged in to add favorites.")
-    elif not venue:
+    if not venue:
         flash("Venue not found.")
     else:
-        crud.create_favorite(user, venue)
-        flash("Venue added to favorites.")
+        try:
+            favorite = crud.create_favorite(user, venue)
+            db.add(favorite)  
+            db.commit()  
+            if favorite:
+                flash("Venue added to favorites.")
+            else:
+                flash("This venue is already in your favorites.")
+        except:
+            flash("Error adding venue to favorites.")
+
+    return render_template('venue-details.html')
+
+
+
+@app.route('/remove_favorite/<int:id>', methods=["POST"])
+def remove_favorite(id):
+    """Remove favorite from Favorites."""
+    
+    favorite = crud.get_favorite_by_id(id)
+
+    if not favorite:
+        flash("Favorite not found.")
+    else:
+        crud.delete_favorite(favorite)
+        flash("Favorite removed.")
 
     return redirect("/")
 
 
-
-
-
-@app.route('/map/directions/<id>')
-def get_directions(id):
-    """Creates map and directions."""
-    url = f'https://api.yelp.com/v3/businesses/{id}'
-    headers = {'Authorization': 'Bearer %s' % YELP_API_KEY}
-    payload = {'apikey': YELP_API_KEY}
-
-    response = requests.get(url, params=payload, headers=headers).json()
-
-    return render_template("map.html",
-                        business=response)
+@app.route('/profile')
+def profile():
+    user_email = session['user_email']
+    user = crud.get_user_by_email(user_email)
+    favorites = crud.get_favorites_by_user(user)
+    return render_template('profile.html', user=user, favorites=favorites)
 
 
 @app.route('/logout')
@@ -211,7 +228,9 @@ def logout():
     """Logout"""
 
     session.pop('user')
+    flash('You are now logged out.')
     return redirect("/")
+
 
 
 if __name__ == "__main__":
