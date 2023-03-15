@@ -53,18 +53,18 @@ function initMap() {
     }
 }
 
-function displayDirections(response) {
-    const directions = response.routes[0].legs[0].steps;
-    const directionsPanel = document.getElementById('directions-panel');
-    let html = '<ol>';
+// function displayDirections(response) {
+//     const directions = response.routes[0].legs[0].steps;
+//     const directionsPanel = document.getElementById('directions-panel');
+//     let html = '<ol>';
 
-    for (let i = 0; i < directions.length; i++) {
-        html += '<li>' + directions[i].instructions + '</li>';
-    }
+//     for (let i = 0; i < directions.length; i++) {
+//         html += '<li>' + directions[i].instructions + '</li>';
+//     }
 
-    html += '</ol>';
-    directionsPanel.innerHTML = html;
-}
+//     html += '</ol>';
+//     directionsPanel.innerHTML = html;
+// }
 
 const x = navigator.geolocation;
 x.getCurrentPosition(success, failure);

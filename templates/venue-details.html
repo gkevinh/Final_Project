@@ -6,7 +6,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h2>{{ business['name'] }}</h2>
+      <h2 style="margin-top: 1in;">{{ business['name'] }}</h2>
     </div>
   </div>
 
@@ -35,19 +35,31 @@
       </a>
     </p>
       <p>
-        <a class="btn btn-primary" href="/add_favorite/{{ business['id'] }}" method="POST">
-          Add Favorite
-        </a>
+        <button class="btn btn-primary add-favorite">Add Favorite</button>
+          <script src="/static/js/favorites.js"></script>
+      </p>
+      <p>
+        <a class="btn btn-primary" href="/venue">
+          Search
+          </a>
       </p>
       <p>
       <a class="btn btn-primary" href="/">
         Home
         <br>
       </a>
-    </p>
+      </p>
+      <p>
+        <a class="btn btn-primary" href="/profile">
+          View your profile page
+          <br>
+        </a>
+      </p>
     </p>
 
     
   </div>
 </div>
 {% endblock %}
+
+

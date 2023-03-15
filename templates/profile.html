@@ -2,6 +2,17 @@
 
 {% block title %}User Profile{% endblock %}
 
+{% block head %}
+  <style>
+    body {
+      margin-left: 110px;
+      margin-top: 1in;
+    }
+
+  </style>
+
+{% endblock %}
+
 {% block body %}
   <h2>{{ user.fname }} {{ user.lname }}</h2>
   <p><strong>Email:</strong> {{ user.email }}</p>
@@ -16,6 +27,8 @@
   {% else %}
     <p>No favorites yet.</p>
   {% endif %}
+
+  
 
   <div class="d-inline-block">
     <a class="btn btn-primary" href="/">Home</a>

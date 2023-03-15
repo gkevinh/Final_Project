@@ -2,11 +2,22 @@
 
 {% block title %}Search For Desserts{% endblock %}
 
+
+{% block head %}
+  <style>
+    body {
+      margin-left: 40px;
+    }
+  </style>
+
+{% endblock %}
+
 {% block body %}
+
 <div class="container">
   <div class="row">
     <div class="col">
-      <h2>Search for Desserts</h2>
+      <h2 style="margin-left: -10px;margin-top: 1in;">Search for Desserts</h2>
 
       <form method="GET" action="/venues/search">
         <div class="row">
@@ -22,6 +33,7 @@
             class="form-control"
             type="text"
             name="zipcode"
+            style="width: 3in;"
           >
         </div>
 
@@ -37,6 +49,7 @@
                 class="form-control"
                 type="number"
                 name="radius"
+                style="width: 3in;"
               >
             </div>
         </div>
@@ -48,6 +61,7 @@
             id="search-sort-by"
             class="form-control form-select"
             name="sort"
+            style="width: 3in;"
           >
             <option value="distance,asc">Distance</option>
             <option value="relevance,asc">Relevance</option>
@@ -60,7 +74,7 @@
             <p>
               <br>
               <a class="btn btn-primary" href="/profile">
-                View User Profile
+                View your profile page
                 <br>
               </a>
               <br>
@@ -77,3 +91,4 @@
   </div>
 </div>
 {% endblock %}
+

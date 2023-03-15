@@ -1,10 +1,9 @@
-from flask import (Flask, render_template, request, flash, session,
-                   redirect, url_for)
+from flask import Flask, jsonify, render_template, request, redirect, session, flash, url_for
 from model import connect_to_db, db
-import crud, seed_database
+import crud, seed_database, model
 import os
 import requests
-# from pprint import pprint
+from pprint import pprint
 from pprint import pformat
 import json
 
@@ -85,6 +84,11 @@ def find_venues():
     radius = request.args.get('radius', '')
     sort = request.args.get('sort', '')
 
+    if not postal_code:
+        message = "Please enter a zip code to search for venues."
+        return render_template('search-form.html', message=message)
+
+
     url = 'https://api.yelp.com/v3/businesses/search'
     headers = {'Authorization': 'Bearer %s' % YELP_API_KEY}
     payload = {'limit': '30',
@@ -149,6 +153,13 @@ def view_profile():
     return render_template('profile.html', user=user, favorites=favorites)
 
 
+@app.route('/profile')
+def profile():
+    user_email = session['user_email']
+    user = crud.get_user_by_email(user_email)
+    favorites = crud.get_favorites_by_user(user)
+    return render_template('profile.html', user=user, favorites=favorites)
+
 
 # @app.route('/venues/search')
 # def call_yelp_api():
@@ -168,59 +179,47 @@ def view_profile():
 
 
 
-
-
-@app.route('/add_favorite/venue/<id>', methods=["POST"])
-def add_favorite(id):
-    """Add venue to favorites."""
-
-    user_email = session.get("user_email")
-    if not user_email:
-        flash("You must be logged in to add favorites.")
-        return redirect("/")
-
-    user = crud.get_user_by_email(user_email)
-    venue = crud.get_venue_by_id(id)
-
+@app.route('/add-favorite/<int:venue_id>', methods=['POST'])
+def add_favorite(venue_id):
+    """Add venue to user's favorites"""
+    if 'user_email' not in session:
+        flash('Please log in to add a favorite')
+        return redirect('/')
+    user = crud.get_user_by_email(session['user_email'])
+    if not user:
+        flash('Please log in to add a favorite')
+        return redirect('/')
+    venue = crud.get_venue_by_id(venue_id)
     if not venue:
-        flash("Venue not found.")
-    else:
-        try:
-            favorite = crud.create_favorite(user, venue)
-            db.add(favorite)  
-            db.commit()  
-            if favorite:
-                flash("Venue added to favorites.")
-            else:
-                flash("This venue is already in your favorites.")
-        except:
-            flash("Error adding venue to favorites.")
-
+        flash('Venue not found')
+        return redirect('/')
+    favorite = crud.save_as_favorite(user.id, venue)
+    db.session.add(favorite)
+    db.session.commit()
+    flash(f'{venue.venue_name} added to your favorites')
     return render_template('venue-details.html')
 
 
 
-@app.route('/remove_favorite/<int:id>', methods=["POST"])
-def remove_favorite(id):
-    """Remove favorite from Favorites."""
+
+
+
+# @app.route('/remove_favorite/<int:id>', methods=["POST"])
+# def remove_favorite(id):
+#     """Remove favorite from Favorites."""
     
-    favorite = crud.get_favorite_by_id(id)
+#     favorite = crud.get_favorite_by_id(id)
 
-    if not favorite:
-        flash("Favorite not found.")
-    else:
-        crud.delete_favorite(favorite)
-        flash("Favorite removed.")
+#     if not favorite:
+#         flash("Favorite not found.")
+#     else:
+#         crud.delete_favorite(favorite)
+#         flash("Favorite removed.")
 
-    return redirect("/")
+#     return redirect("/")
 
 
-@app.route('/profile')
-def profile():
-    user_email = session['user_email']
-    user = crud.get_user_by_email(user_email)
-    favorites = crud.get_favorites_by_user(user)
-    return render_template('profile.html', user=user, favorites=favorites)
+
 
 
 @app.route('/logout')

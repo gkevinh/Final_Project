@@ -1,8 +1,19 @@
 {% extends 'base.html' %}
 {% block title %}Ono Sweets{% endblock %}
 
+
+{% block head %}
+  <style>
+    body {
+      margin-left: 110px;
+    }
+
+  </style>
+
+{% endblock %}
+
 {% block body %}
-  <h1>Welcome to Ono Sweets!</h1>
+  <h1 style="margin-top: 1in;">Search for Desserts</h1>
 
   <ul>
     {% for message in get_flashed_messages() %}
@@ -37,7 +48,9 @@
       Password <input type="password" name="password">
     </p>
     <p>
-      <input type="submit">
+      <input type="submit" value="Submit" class="btn btn-primary">
+
+
     </p>
   </form>
 
@@ -52,7 +65,7 @@
     </p>
 
     <p>
-      <input type="submit">
+      <input type="submit" value="Submit" class="btn btn-primary">
     </p>
   </form>
 {% endblock %}

@@ -22,10 +22,15 @@
     <input type=hidden id="lat" value="{{business['coordinates']['latitude']}}" />
     <input type=hidden id="long" value="{{business['coordinates']['longitude']}}" />
 
-    <a class="btn btn-primary" href="/venue">
-      Search
-      <br>
-
+    <div class="row">
+      <div class="col-12 text-center mb-3">
+        <a class="btn btn-primary" href="/venue">Search</a>
+      </div>
+      <div class="col-12 text-center">
+        <a class="btn btn-primary" href="/">Home</a>
+      </div>
+    </div>
+  
     <script src="/static/js/app.js"></script>
     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8p2SzMtIATGrROPu-00f_dolXZTYVHHw&callback=initMap"></script>
   </body>

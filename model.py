@@ -52,8 +52,6 @@ class Favorite(db.Model):
         return f"<Favorite id={self.id} saved={self.saved_at}>"
 
 
-
-
 def connect_to_db(app):
     """Connect the database to our Flask app."""
 
