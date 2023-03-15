@@ -1,29 +1,30 @@
 'use strict';
 
-function addFavorite(evt) {
+function addFavorite(user_id, venue_id) {
   evt.preventDefault();
-  const venueId = evt.target.dataset.venueId;
-  
-  fetch(`/add-favorite/${venueId}`, {
+
+  fetch('/add-favorite', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ venue_id: venueId })
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.status === 'success') {
-        alert(data.message);
-      } else {
-        console.error(data.message);
-      }
+    body: JSON.stringify({
+      user_id: user_id,
+      venue_id: venue_id
     })
-    .catch((error) => {
-      console.error(error);
-    });
+  })
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    if (data.success) {
+      alert('Added to favorites!');
+    } else {
+      alert('Error adding to favorites.');
+    }
+  })
+  .catch(function(error) {
+    console.error('Error adding favorite:', error);
+    alert('Error adding to favorites.');
+  });
 }
-
-document.querySelectorAll('.add-favorite').forEach((button) => {
-  button.addEventListener('click', addFavorite);
-});

@@ -85,7 +85,7 @@ button, input[type="button"], input[type="submit"] {
   border-color: #696 #363 #363 #696; 
 } 
 
-.btn-primary {
+.btn-primary, .favorite-btn {
   color:#050; 
   font: bold 84% 'trebuchet ms',helvetica,sans-serif; 
   background-color:#fed; 

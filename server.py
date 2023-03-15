@@ -179,25 +179,28 @@ def profile():
 
 
 
-@app.route('/add-favorite/<int:venue_id>', methods=['POST'])
-def add_favorite(venue_id):
-    """Add venue to user's favorites"""
+@app.route('/add_favorite', methods=['POST'])
+def add_favorite():
+    """Add a venue to user's favorites."""
+
     if 'user_email' not in session:
-        flash('Please log in to add a favorite')
-        return redirect('/')
+        return jsonify({'success': False, 'message': 'Please log in to add a favorite'})
+
     user = crud.get_user_by_email(session['user_email'])
     if not user:
-        flash('Please log in to add a favorite')
-        return redirect('/')
+        return jsonify({'success': False, 'message': 'Please log in to add a favorite'})
+
+    venue_id = request.json.get('venue_id')
     venue = crud.get_venue_by_id(venue_id)
     if not venue:
-        flash('Venue not found')
-        return redirect('/')
-    favorite = crud.save_as_favorite(user.id, venue)
+        return jsonify({'success': False, 'message': 'Venue not found'})
+
+    favorite = crud.save_as_favorite(user.id, venue.id)
     db.session.add(favorite)
     db.session.commit()
-    flash(f'{venue.venue_name} added to your favorites')
-    return render_template('venue-details.html')
+
+    return jsonify({'success': True, 'message': 'Added to favorites!'})
+
 
 
 
@@ -217,8 +220,6 @@ def add_favorite(venue_id):
 #         flash("Favorite removed.")
 
 #     return redirect("/")
-
-
 
 
 

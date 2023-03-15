@@ -34,10 +34,16 @@
         Directions
       </a>
     </p>
-      <p>
-        <button class="btn btn-primary add-favorite">Add Favorite</button>
-          <script src="/static/js/favorites.js"></script>
-      </p>
+    <p>
+      <button class="btn btn-primary add-favorite">Add Favorite</button>
+    </p>
+    <script src="/static/js/favorites.js"></script>
+    <script>
+      const addFavoriteButton = document.querySelector('.add-favorite');
+      addFavoriteButton.addEventListener('click', function(evt) {
+        addFavorite(evt, venue_id);
+      });
+    </script>
       <p>
         <a class="btn btn-primary" href="/venue">
           Search
