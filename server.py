@@ -119,10 +119,14 @@ def get_venue_details(id):
     headers = {'Authorization': 'Bearer %s' % YELP_API_KEY}
     payload = {'apikey': YELP_API_KEY}
 
+    user_email = session['user_email']
+    user_by_email = crud.get_user_by_email(user_email)
     response = requests.get(url, params=payload, headers=headers).json()
 
     return render_template('venue-details.html',
-                            business=response)
+                            business=response,
+                            user=user_by_email)
+
 
 
 @app.route('/map/directions/<id>')
@@ -153,12 +157,12 @@ def view_profile():
     return render_template('profile.html', user=user, favorites=favorites)
 
 
-@app.route('/profile')
-def profile():
-    user_email = session['user_email']
-    user = crud.get_user_by_email(user_email)
-    favorites = crud.get_favorites_by_user(user)
-    return render_template('profile.html', user=user, favorites=favorites)
+# @app.route('/profile')
+# def profile():
+#     user_email = session['user_email']
+#     user = crud.get_user_by_email(user_email)
+#     favorites = crud.get_favorites_by_user(user)
+#     return render_template('profile.html', user=user, favorites=favorites)
 
 
 # @app.route('/venues/search')
@@ -179,15 +183,15 @@ def profile():
 
 
 
-@app.route('/add_favorite', methods=['POST'])
+@app.route('/add-favorite', methods=['POST'])
 def add_favorite():
     """Add a venue to user's favorites."""
 
     if 'user_email' not in session:
         return jsonify({'success': False, 'message': 'Please log in to add a favorite'})
 
-    user = crud.get_user_by_email(session['user_email'])
-    if not user:
+    email = crud.get_user_by_email(session['user_email'])
+    if not email:
         return jsonify({'success': False, 'message': 'Please log in to add a favorite'})
 
     venue_id = request.json.get('venue_id')
@@ -195,13 +199,36 @@ def add_favorite():
     if not venue:
         return jsonify({'success': False, 'message': 'Venue not found'})
 
-    favorite = crud.save_as_favorite(user.id, venue.id)
+    favorite = crud.save_as_favorite(email, venue_id)
     db.session.add(favorite)
     db.session.commit()
 
     return jsonify({'success': True, 'message': 'Added to favorites!'})
 
 
+
+@app.route('/remove-favorite', methods=['DELETE'])
+def remove_favorite():
+    """Remove a venue from user's favorites."""
+
+    if 'user_email' not in session:
+        return jsonify({'success': False, 'message': 'Please log in to remove a favorite'})
+
+    user = crud.get_user_by_email(session['user_email'])
+    if not user:
+        return jsonify({'success': False, 'message': 'Please log in to remove a favorite'})
+
+    venue_id = request.json.get('venue_id')
+    venue = crud.get_venue_by_id(venue_id)
+    if not venue:
+        return jsonify({'success': False, 'message': 'Venue not found'})
+
+    favorite = crud.remove_favorite(venue_id)
+    if not favorite:
+        return jsonify({'success': False, 'message': 'Favorite not found'})
+    db.session.delete(favorite)
+    db.session.commit()
+    return jsonify({'success': True, 'message': 'Removed from favorites!'})
 
 
 

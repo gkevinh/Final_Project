@@ -3,6 +3,7 @@
 {% block title %}Venue Details | {{ business['name'] }}{% endblock %}
 
 {% block body %}
+
 <div class="container">
   <div class="row">
     <div class="col">
@@ -18,7 +19,7 @@
         </a>
       </p>
     </div>
-
+    <hidden id="venue_id" hidden> {{ business['id'] }} </hidden>
     <div class="col">
       <h6></h6>
       <h6>{{ '(' + business['phone'][2:5] + ') ' + business['phone'][5:8] + '-' + business['phone'][8:] }}</h6>
@@ -26,7 +27,6 @@
       <h6>rating: {{business['rating']}}</h6> 
       <h6>review count: {{business['review_count']}}</h6>
       <p hidden> {{ business['coordinates']}}</p>   
-
     </div>
     <p>
       <br>
@@ -36,14 +36,8 @@
     </p>
     <p>
       <button class="btn btn-primary add-favorite">Add Favorite</button>
+      <button class="btn btn-primary remove-favorite">Remove Favorite</button>
     </p>
-    <script src="/static/js/favorites.js"></script>
-    <script>
-      const addFavoriteButton = document.querySelector('.add-favorite');
-      addFavoriteButton.addEventListener('click', function(evt) {
-        addFavorite(evt, venue_id);
-      });
-    </script>
       <p>
         <a class="btn btn-primary" href="/venue">
           Search
@@ -63,7 +57,7 @@
       </p>
     </p>
 
-    
+    <script src="/static/js/favorites.js"></script>
   </div>
 </div>
 {% endblock %}

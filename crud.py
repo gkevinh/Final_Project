@@ -43,26 +43,26 @@ def get_favorites():
     return Favorite.query.all()
 
 
-def save_as_favorite(user_id, venue_id):
+def save_as_favorite(email, venue_id):
     """Save and return a favorite."""
 
-    favorite = Favorite(user_id=user_id, venue_id=venue_id)
+    favorite = Favorite(email=email, venue_id=venue_id)
 
     return favorite
 
 
-# def remove_favorite(id):
-#     """ Remove favorite from Favorites. """
-#     favorite = Favorite.query.filter(Favorite.id == id).first()
+def remove_favorite(venue_id):
+    """ Remove favorite from Favorites. """
+    favorite = Favorite.query.filter(Favorite.venue_id == id).first()
 
-#     if not favorite:
-#         flash("Favorite not found.")
-#     else:
-#         db.session.delete(favorite)
-#         db.session.commit()
-#         flash("Favorite removed.")
+    if not favorite:
+        flash("Favorite not found.")
+    else:
+        db.session.delete(favorite)
+        db.session.commit()
+        flash("Favorite removed.")
 
-    # return redirect("/")
+    return redirect("/")
 
 
 
