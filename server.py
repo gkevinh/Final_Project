@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, render_template, request, redirect, session, flash, url_for
-from model import connect_to_db, db
+from model import connect_to_db, db, Venue, User, Favorite
 import crud, seed_database, model
 import os
 import requests
@@ -79,6 +79,10 @@ def show_search_form():
 def find_venues():
     """Search for dessert places"""
 
+    if 'user_email' not in session:
+        flash('You need to log in to view venue details.')
+        return redirect('/')
+
     keyword = request.args.get('keyword', '')
     postal_code = request.args.get('zipcode', '')
     radius = request.args.get('radius', '')
@@ -115,6 +119,10 @@ def find_venues():
 def get_venue_details(id):
     """View the details of a venue."""
 
+    if 'user_email' not in session:
+        flash('You need to log in to view venue details.')
+        return redirect('/')
+
     url = f'https://api.yelp.com/v3/businesses/{id}'
     headers = {'Authorization': 'Bearer %s' % YELP_API_KEY}
     payload = {'apikey': YELP_API_KEY}
@@ -126,6 +134,11 @@ def get_venue_details(id):
     return render_template('venue-details.html',
                             business=response,
                             user=user_by_email)
+
+
+
+
+
 
 
 
@@ -157,6 +170,9 @@ def view_profile():
     return render_template('profile.html', user=user, favorites=favorites)
 
 
+
+
+
 # @app.route('/profile')
 # def profile():
 #     user_email = session['user_email']
@@ -183,10 +199,32 @@ def view_profile():
 
 
 
+# @app.route('/add-favorite', methods=['POST'])
+# def add_favorite():
+#     """Add a venue to user's favorites."""
+
+#     if 'user_email' not in session:
+#         return jsonify({'success': False, 'message': 'Please log in to add a favorite'})
+
+#     email = crud.get_user_by_email(session['user_email'])
+#     if not email:
+#         return jsonify({'success': False, 'message': 'Please log in to add a favorite'})
+
+#     external_id = request.json.get('venue')
+#     venue = crud.get_venue_by_external_id(external_id)
+#     if not venue:
+#         return jsonify({'success': False, 'message': 'Venue not found'})
+
+#     favorite = crud.save_as_favorite(email, external_id)
+#     db.session.add(favorite)
+#     db.session.commit()
+
+#     return jsonify({'success': True, 'message': 'Added to favorites!'})
+
+
 @app.route('/add-favorite', methods=['POST'])
 def add_favorite():
     """Add a venue to user's favorites."""
-
     if 'user_email' not in session:
         return jsonify({'success': False, 'message': 'Please log in to add a favorite'})
 
@@ -194,16 +232,32 @@ def add_favorite():
     if not email:
         return jsonify({'success': False, 'message': 'Please log in to add a favorite'})
 
-    venue_id = request.json.get('venue_id')
-    venue = crud.get_venue_by_id(venue_id)
-    if not venue:
-        return jsonify({'success': False, 'message': 'Venue not found'})
+    data = request.json
+    external_id = data.get('external_id')
+    venue_name = data.get('venue_name')
+    phone = data.get('phone')
+    address = data.get('address')
+    rating = data.get('rating')
+    review_count = data.get('review_count')
 
-    favorite = crud.save_as_favorite(email, venue_id)
+    venue = crud.get_venue_by_external_id(external_id)
+    if not venue:
+        venue = Venue(venue_name=venue_name,
+                      external_id=external_id,
+                      phone=phone,
+                      address=address,
+                      rating=rating,
+                      review_count=review_count)
+        db.session.add(venue)
+
+    favorite = crud.save_as_favorite(email, external_id)
     db.session.add(favorite)
     db.session.commit()
 
     return jsonify({'success': True, 'message': 'Added to favorites!'})
+
+
+
 
 
 

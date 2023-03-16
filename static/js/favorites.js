@@ -7,18 +7,30 @@ const removeFavoriteButton = document.querySelector('.remove-favorite');
 
 addFavoriteButton.addEventListener('click', (evt) => {
   evt.preventDefault();
-    const venue_id = document.querySelector("#venue_id").innerHTML;
-    addFavorite(venue_id);
+    const external_id = document.querySelector("#external_id").innerHTML;
+    const venue_name = document.querySelector("#venue_name").innerHTML;
+    const phone = document.querySelector("#phone").innerHTML;
+    const address = document.querySelector("#address").innerHTML;
+    const rating = document.querySelector("#rating").innerHTML;
+    const review_count = document.querySelector("#review_count").innerHTML;
+    addFavorite(external_id);
   });
 
   removeFavoriteButton.addEventListener('click', function(evt) {
-    removeFavorite(email, venue_id);
+    removeFavorite(email, external_id);
   });
 
-
-function addFavorite(venue_id) {
+function addFavorite(external_id) {
+  // const input = {
+  //   venue: external_id
+  // }
   const input = {
-    venue: venue_id
+    venue_name: venue_name,
+    external_id: external_id,
+    phone: phone,
+    address: address,
+    rating: rating,
+    review_count: review_count
   }
   fetch('/add-favorite', {
     method: 'POST',
@@ -43,14 +55,14 @@ function addFavorite(venue_id) {
 
 
 
-function removeFavorite(venue_id) {
+function removeFavorite(external_id) {
   fetch('/remove-favorite', {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      venue_id: venue_id
+      external_id: external_id
     })
   })
   .then((response) => response.json())

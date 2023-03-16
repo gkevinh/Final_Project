@@ -26,8 +26,12 @@ class Venue(db.Model):
     __tablename__ = "venues"
 
     id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    venue_name = db.Column(db.Text, nullable=False)
+    venue_name = db.Column(db.Text)
     external_id = db.Column(db.Text, nullable=False)
+    phone = db.Column(db.Text)
+    address = db.Column(db.Text)
+    rating = db.Column(db.Text)
+    review_count = db.Column(db.Text)
 
     favorites = db.relationship("Favorite", back_populates="venue")
 

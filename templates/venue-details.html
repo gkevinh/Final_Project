@@ -19,7 +19,12 @@
         </a>
       </p>
     </div>
-    <hidden id="venue_id" hidden> {{ business['id'] }} </hidden>
+    <hidden id="external_id" hidden> {{ business['id'] }} </hidden>
+    <hidden id="venue_name" hidden> {{ business['name'] }} </hidden>
+    <hidden id="phone" hidden> {{ business['phone'] }}</hidden>
+    <hidden id="address" hidden> {{ business['location']['address1'] }} {{ business['location']['city'] }} {{ business['location']['zip_code'] }}</hidden>
+    <hidden id="rating" hidden> {{business['review_count']}} </hidden>
+    <hidden id="review_count" hidden> {{business['review_count']}} </hidden>
     <div class="col">
       <h6></h6>
       <h6>{{ '(' + business['phone'][2:5] + ') ' + business['phone'][5:8] + '-' + business['phone'][8:] }}</h6>
@@ -51,7 +56,7 @@
       </p>
       <p>
         <a class="btn btn-primary" href="/profile">
-          View your profile page
+          View profile page
           <br>
         </a>
       </p>

@@ -43,12 +43,19 @@ def get_favorites():
     return Favorite.query.all()
 
 
-def save_as_favorite(email, venue_id):
+def save_as_favorite(email, external_id):
     """Save and return a favorite."""
 
-    favorite = Favorite(email=email, venue_id=venue_id)
+    favorite = Favorite(email=email, external_id=external_id)
 
     return favorite
+
+
+def get_venue_by_external_id(external_id):
+    """Return a venue by external ID."""
+
+    return Venue.query.filter(Venue.external_id == external_id).first()
+
 
 
 def remove_favorite(venue_id):
