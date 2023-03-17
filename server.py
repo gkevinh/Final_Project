@@ -137,11 +137,6 @@ def get_venue_details(id):
 
 
 
-
-
-
-
-
 @app.route('/map/directions/<id>')
 def get_directions(id):
     """Creates map and directions."""
@@ -170,7 +165,14 @@ def view_profile():
     return render_template('profile.html', user=user, favorites=favorites)
 
 
+@app.route("/logout")
+def logout():
+    """User logout."""
 
+    session.pop("user_email", None)
+
+    flash("You have been logged out.")
+    return redirect("/")
 
 
 # @app.route('/profile')
@@ -304,13 +306,8 @@ def remove_favorite():
 
 
 
-@app.route('/logout')
-def logout():
-    """Logout"""
 
-    session.pop('user')
-    flash('You are now logged out.')
-    return redirect("/")
+
 
 
 
