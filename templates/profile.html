@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 {% extends 'base.html' %}
 
 {% block title %}User Profile{% endblock %}
@@ -16,20 +25,6 @@
 {% block body %}
   <h2>{{ user.fname }} {{ user.lname }}</h2>
   <p><strong>Email:</strong> {{ user.email }}</p>
-
-  <h3>Favorites</h3>
-  {% if favorites %}
-    <ul>
-      {% for favorite in favorites %}
-        <li>{{ favorite.venue.name }}</li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>No favorites yet.</p>
-  {% endif %}
-
-  
-
   <div class="d-inline-block">
     <a class="btn btn-primary" href="/">Home</a>
   </div>
@@ -38,6 +33,29 @@
   <div class="d-inline-block">
     <a class="btn btn-primary" href="/venue">Search</a>
   </div>
+  <br>
+  <br>
+  <h3>Favorites</h3>
+  {% if favorites %}
+      {% for favorite in favorites %}
+        <li>{{ favorite.venue.venue_name|safe }}</li>
+        <li class="no-bullet">{{ '({}) {}-{}'.format(favorite.venue.phone[-10:-7], favorite.venue.phone[-7:-4], favorite.venue.phone[-4:]) }}</li>
+        <li class="no-bullet">{{ favorite.venue.address }}</li>
+        <div class="d-inline-block">
+          <a href="/venue_without_fav/{{ favorite.venue.external_id.strip() }}" target="_blank">
+            <button class="btn btn-sm btn-primary" type="submit">View Details</button>
+          </a>
+          
+          </form>
+        </div>
+      {% endfor %}
+
+  {% else %}
+    <p>No favorites yet.</p>
+  {% endif %}
+<br>
+<br>
+
 
   <br>
 

@@ -2,8 +2,6 @@
 
 from model import db, User, Favorite, Venue, connect_to_db
 from datetime import datetime
-from flask import Flask, render_template, request, redirect, session, flash
-
 
 
 def create_user(fname, lname, email,password):
@@ -37,24 +35,34 @@ def get_venue_by_id(id):
     return Venue.query.get(id)
 
 
+def get_venue_by_external_id(external_id):
+    """Return a venue by external id."""
+
+    return Venue.query.get(external_id)
+
+
 def get_favorites():
     """Return all favorites."""
 
     return Favorite.query.all()
 
 
-def save_as_favorite(email, external_id):
+def save_as_favorite(user, venue):
     """Save and return a favorite."""
 
-    favorite = Favorite(email=email, external_id=external_id)
-
+    favorite = Favorite(user=user, venue=venue)
     return favorite
 
 
 def get_venue_by_external_id(external_id):
     """Return a venue by external ID."""
+    print(Venue.query.filter_by(external_id=external_id).first())
+    return Venue.query.filter_by(external_id=external_id).first()
 
-    return Venue.query.filter(Venue.external_id == external_id).first()
+
+def get_favorite_by_user_and_venue(user, venue):
+    """Return favorite object given user and venue."""
+    return Favorite.query.filter_by(user=user, venue=venue).first()
 
 
 
@@ -73,6 +81,12 @@ def remove_favorite(venue_id):
 
 
 
+def create_venue(venue_name, external_id):
+    db_venue = Venue(venue_name=venue_name, external_id=external_id)
+    db.session.add(db_venue)
+    db.session.commit()
+    return db_venue    
+    
 if __name__ == "__main__":
     from server import app
     connect_to_db(app)
