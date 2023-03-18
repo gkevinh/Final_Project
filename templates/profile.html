@@ -1,12 +1,3 @@
-
-
-
-
-
-
-
-
-
 {% extends 'base.html' %}
 
 {% block title %}User Profile{% endblock %}
@@ -17,7 +8,6 @@
       margin-left: 120px;
       margin-top: 1in;
     }
-
   </style>
 
 {% endblock %}
@@ -42,21 +32,14 @@
         <li class="no-bullet">{{ '({}) {}-{}'.format(favorite.venue.phone[-10:-7], favorite.venue.phone[-7:-4], favorite.venue.phone[-4:]) }}</li>
         <li class="no-bullet">{{ favorite.venue.address }}</li>
         <div class="d-inline-block">
-          <a href="/venue_without_fav/{{ favorite.venue.external_id.strip() }}" target="_blank">
-            <button class="btn btn-sm btn-primary" type="submit">View Details</button>
+          <a href="/venue_without_fav/{{ favorite.venue.external_id.strip() }}">
+            <button class="btn btn-sm btn-primary" type="submit" style="display: inline-block; margin-left: 10px;">View Details</button>
           </a>
           
           </form>
         </div>
       {% endfor %}
-
   {% else %}
     <p>No favorites yet.</p>
   {% endif %}
-<br>
-<br>
-
-
-  <br>
-
 {% endblock %}

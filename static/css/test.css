@@ -115,12 +115,17 @@ button, input[type="button"], input[type="submit"] {
   box-shadow: none;
 }
 
-.btn.btn-primary.btn-sm:hover {
-  background-color: #211, 211, 211;
-  color: #000;
-}
 
 .btn.btn-primary.btn-sm:focus {
   box-shadow: none;
   outline: none;
+}
+
+
+button.add-favorite:focus,
+button.add-favorite:active {
+  outline: none;
+  box-shadow: none;
+  background-color: #fed;
+  color:rgb(75, 83, 32);
 }

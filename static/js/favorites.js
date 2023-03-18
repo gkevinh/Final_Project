@@ -14,10 +14,6 @@ addFavoriteButton.addEventListener('click', (evt) => {
     addFavorite(external_id, venue_name, phone, address, rating, review_count);
   });
 
-  removeFavoriteButton.addEventListener('click', function(evt) {
-    removeFavorite(external_id);
-  });
-
 function addFavorite(external_id, venue_name, phone, address, rating, review_count) {
   const input = {
     venue_name: venue_name,

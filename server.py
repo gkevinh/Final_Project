@@ -210,31 +210,6 @@ def logout():
     return redirect("/")
 
 
-# @app.route('/profile')
-# def profile():
-#     user_email = session['user_email']
-#     user = crud.get_user_by_email(user_email)
-#     favorites = crud.get_favorites_by_user(user)
-#     return render_template('profile.html', user=user, favorites=favorites)
-
-
-# @app.route('/venues/search')
-# def call_yelp_api():
-#     """Search for venues"""
-
-#     endpoint = "https://api.yelp.com/v3/businesses/search"
-#     headers = {'Authorization': 'Bearer %s' % YELP_API_KEY}
-#     payload = {'limit' : '15', 'location' : '90404', 'categories' : 'desserts'}
-
-#     response = requests.get(endpoint, params=payload, headers=headers).json()
-
-#     pprint(response['businesses'])
-
-    # business_data = response.json()
-
-    # print(json.dumps(business_data, indent = 3))
-
-
 @app.route('/venue_without_fav/<id>')
 def get_venue_details_without_fav(id):
     """View the details of a venue."""
@@ -256,19 +231,9 @@ def get_venue_details_without_fav(id):
 
 
 
-    
-
-
-
-
-
-
-
-
-@app.route('/remove-favorite', methods=['DELETE'])
+@app.route('/remove-favorite', methods=['POST'])
 def remove_favorite():
     """Remove a venue from user's favorites."""
-
     if 'user_email' not in session:
         return jsonify({'success': False, 'message': 'Please log in to remove a favorite'})
 
@@ -276,39 +241,21 @@ def remove_favorite():
     if not user:
         return jsonify({'success': False, 'message': 'Please log in to remove a favorite'})
 
-    venue_id = request.json.get('venue_id')
-    venue = crud.get_venue_by_id(venue_id)
-    if not venue:
-        return jsonify({'success': False, 'message': 'Venue not found'})
+    data = request.json
+    external_id = data.get('external_id')
+    venue_name = data.get('venue_name')
+    phone = data.get('phone')
+    address = data.get('address')
+    rating = data.get('rating')
+    review_count = data.get('review_count')
 
-    favorite = crud.remove_favorite(venue_id)
-    if not favorite:
-        return jsonify({'success': False, 'message': 'Favorite not found'})
+    venue = crud.get_venue_by_external_id(external_id)
+    favorite = crud.get_favorite_by_user_and_venue(user, venue)
+    print(favorite)
     db.session.delete(favorite)
     db.session.commit()
+
     return jsonify({'success': True, 'message': 'Removed from favorites!'})
-
-
-
-
-
-# @app.route('/remove_favorite/<int:id>', methods=["POST"])
-# def remove_favorite(id):
-#     """Remove favorite from Favorites."""
-    
-#     favorite = crud.get_favorite_by_id(id)
-
-#     if not favorite:
-#         flash("Favorite not found.")
-#     else:
-#         crud.delete_favorite(favorite)
-#         flash("Favorite removed.")
-
-#     return redirect("/")
-
-
-
-
 
 
 
