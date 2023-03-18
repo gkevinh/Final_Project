@@ -57,9 +57,21 @@ def get_favorite_by_user_and_venue(user, venue):
 
 
 
+def check_if_fav_exists(user_id, venue_id):
+    """Return favorite object given user and venue."""
+    return Favorite.query.filter_by(user_id=user_id, venue_id=venue_id).first()
+
+
+# def get_venue_id_by_external_id(external_id):
+#     return Venue.query.filter_by(external_id=external_id).first()
+
+
+
 def get_favorite_by_id(id):
     """Return favorite by id."""
     return Favorite.query.filter_by(id=id).first()
+
+
 
 
 

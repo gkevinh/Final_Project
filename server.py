@@ -182,6 +182,7 @@ def add_favorite():
     address = data.get('address')
     rating = data.get('rating')
     review_count = data.get('review_count')
+    user_id = user.id
 
     venue = crud.get_venue_by_external_id(external_id)
     if not venue:
@@ -192,11 +193,17 @@ def add_favorite():
                       rating=rating,
                       review_count=review_count)
         db.session.add(venue)
-    favorite = crud.save_as_favorite(user=user, venue=venue)
-    db.session.add(favorite)
-    db.session.commit()
+        db.session.commit()
 
-    return jsonify({'success': True, 'message': 'Added to favorites!'})
+    check_fav=crud.check_if_fav_exists(user_id, venue.id)
+
+    if check_fav:
+        return jsonify({'success': False, 'message': 'Already a favorite'}) 
+    else:
+        favorite = crud.save_as_favorite(user=user, venue=venue)
+        db.session.add(favorite)
+        db.session.commit()
+        return jsonify({'success': True, 'message': 'Added to favorites!'})
 
 
 

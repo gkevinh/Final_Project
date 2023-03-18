@@ -35,7 +35,7 @@ function addFavorite(external_id, venue_name, phone, address, rating, review_cou
     if (data.success) {
       alert('Added to favorites!');  
     } else {
-      alert('Error adding to favorites.');
+      alert(data.message);
     }
   })
   .catch(function(error) {
