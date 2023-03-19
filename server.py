@@ -23,12 +23,6 @@ def homepage():
     return render_template('homepage.html')
 
 
-# @app.route('/seed')
-# def seed_db():
-#     seed_database.seed()
-#     return 'done'
-
-
 @app.route("/user", methods=["POST"])
 def register_user():
     """Create a new user."""
@@ -164,7 +158,6 @@ def view_profile():
     return render_template('profile.html', user=user, favorites=favorites)
 
 
-
 @app.route('/add-favorite', methods=['POST'])
 def add_favorite():
     """Add a venue to user's favorites."""
@@ -204,8 +197,7 @@ def add_favorite():
         db.session.add(favorite)
         db.session.commit()
         return jsonify({'success': True, 'message': 'Added to favorites!'})
-
-
+    
 
 @app.route("/logout")
 def logout():
@@ -237,7 +229,6 @@ def get_venue_details_without_fav(id):
                             user=user_by_email)
 
 
-
 @app.route('/remove-favorite', methods=['POST'])
 def remove_favorite():
     """Remove a venue from user's favorites."""
@@ -263,8 +254,6 @@ def remove_favorite():
     db.session.commit()
 
     return jsonify({'success': True, 'message': 'Removed from favorites!'})
-
-
 
 
 if __name__ == "__main__":
