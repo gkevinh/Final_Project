@@ -6,10 +6,11 @@ html, body {
   align-items: center;
   justify-content: center;
   font-family: sans-serif;
+  color: white
 }
 
 h1 {
-  background-color: rgb(128, 128, 128);
+  background-color: rgb(232, 246, 239);
   color: rgb(98, 205, 255); 
   text-transform: uppercase;
   font-weight: 700;
@@ -29,7 +30,9 @@ h1 {
   height: 100%;
 }
 
-#directions-panel {
+#directions-panel, .directions-panel {
+  font-family: sans-serif;
+  background-color: rgb(232, 246, 239);
   flex: 1; 
   overflow-y: auto;
   height: 100%;
@@ -59,3 +62,4 @@ h1 {
   line-height: 30px;
   height: auto;
 }
+

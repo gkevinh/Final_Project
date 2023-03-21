@@ -28,15 +28,13 @@
   <h3>Favorites</h3>
   {% if favorites %}
       {% for favorite in favorites %}
-        <li>{{ favorite.venue.venue_name|safe }}</li>
+        <ul class="list-unstyled">
+        <form action="/venue_without_fav/{{ favorite.venue.external_id.strip() }}">
+          <button class="btn btn-link" type="submit">{{ favorite.venue.venue_name|safe }}</button>
+        </form>
         <li class="no-bullet">{{ '({}) {}-{}'.format(favorite.venue.phone[-10:-7], favorite.venue.phone[-7:-4], favorite.venue.phone[-4:]) }}</li>
         <li class="no-bullet">{{ favorite.venue.address }}</li>
         <div class="d-inline-block">
-          <a href="/venue_without_fav/{{ favorite.venue.external_id.strip() }}">
-            <button class="btn btn-sm btn-primary" type="submit" style="display: inline-block; margin-left: 10px;">View Details</button>
-          </a>
-          
-          </form>
         </div>
       {% endfor %}
   {% else %}
