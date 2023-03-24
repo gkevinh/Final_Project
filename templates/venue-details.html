@@ -31,6 +31,7 @@
       <h6>{{ '(' + business['phone'][2:5] + ') ' + business['phone'][5:8] + '-' + business['phone'][8:] }}</h6>
       <h6>{{ business['location']['address1'] }}<br>{{ business['location']['city'] }}, {{ business['location']['state'] }} {{ business['location']['zip_code'] }}</h6>
       <h6>review count: {{business['review_count']}}</h6>
+      <h6>average rating: {{ business['rating'] }} (out of 5 stars)</h6>
       <h6>{% if business['is_closed'] %}</h6>
         <h6>CLOSED</h6>
       {% else %}
@@ -60,7 +61,7 @@
       </p>
       <p>
         <a class="btn btn-primary" href="/profile">
-          View profile page
+          Your Profile 
           <br>
         </a>
       </p>

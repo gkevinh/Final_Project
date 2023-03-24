@@ -23,13 +23,14 @@
     <hidden id="venue_name" hidden> {{ business['name'] }} </hidden>
     <hidden id="phone" hidden> {{ business['phone'] }}</hidden>
     <hidden id="address" hidden> {{ business['location']['address1'] }} {{ business['location']['city'] }} {{ business['location']['zip_code'] }}</hidden>
-    <hidden id="rating" hidden> {{business['review_count']}} </hidden>
+    <hidden id="rating" hidden> {{business['rating']}} </hidden>
     <hidden id="review_count" hidden> {{business['review_count']}} </hidden>
     <hidden id="is_closed" hidden> {{business['is_closed']}} </hidden>
     <div class="col">
       <h6></h6>
       <h6>{{ '(' + business['phone'][2:5] + ') ' + business['phone'][5:8] + '-' + business['phone'][8:] }}</h6>
       <h6>{{ business['location']['address1'] }}<br>{{ business['location']['city'] }}, {{ business['location']['state'] }} {{ business['location']['zip_code'] }}</h6>
+      <h6>average rating: {{ business['rating'] }} (out of 5 stars)</h6>
       <h6>review count: {{business['review_count']}}</h6>
       <h6>{% if business['is_closed'] %}</h6>
         <h6>CLOSED</h6>

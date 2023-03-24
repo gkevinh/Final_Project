@@ -66,6 +66,10 @@ def process_login():
 def show_search_form():
     """Show search form"""
 
+    if 'user_email' not in session:
+        flash('You need to log in to view venue details.')
+        return redirect('/')
+    
     return render_template('search-form.html')
 
 
@@ -254,6 +258,15 @@ def remove_favorite():
     db.session.commit()
 
     return jsonify({'success': True, 'message': 'Removed from favorites!'})
+
+
+
+@app.route('/resources')
+def resources():
+    """Additional Hawaii resources"""
+
+    return render_template('resources.html')
+
 
 
 if __name__ == "__main__":

@@ -1,6 +1,17 @@
 body {
-  background-color: rgb(220,220,220);
+  background-color: rgb(151, 222, 255);
+  font-family: 'Fredoka One';
+  font-size: 16px; 
+  color: rgb(58, 152, 185);
+  
 }
+
+.homepage {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 
 .header {
   height: 160px;
@@ -11,7 +22,8 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 0.67em;
-  background-color: rgb(220,220,220);
+  background-color: rgb(151, 222, 255);
+  font-family: 'Fredoka';
 }
 
 .body {
@@ -22,15 +34,16 @@ body {
   background-size: 220px 210px;
   align-items: center;
   margin-bottom: 0.67em;
-  background-color: rgb(220,220,220);
+  background-color: rgb(151, 222, 255);
+  font-family: 'Fredoka';
 }
 
 .event-search-results {
-  background-color: rgb(220,220,220) 
+  background-color: rgb(201, 238, 255);
 }
 
 .list-group-item {
-  background-color: rgb(220,220,220) 
+  background-color: rgb(201, 238, 255);
 }
 
 img{
@@ -54,15 +67,26 @@ pre {
   resize: vertical;
 }
 
-h1,
-h2,
+h1 {
+  font-family: 'Fredoka One';
+  font-size: 135px;
+}
+
+h2 {
+  font-family: 'Fredoka One';
+  font-size: 26px; 
+  font-weight: 400;
+}
+
+
 h3,
 h4,
 h5,
 h6,
 th {
-  font-family: 'Lobster', sans-serif;
-  font-weight: normal;
+  font-family: 'Fredoka One';
+  font-size: 16px; 
+  font-weight: 400;
 }
 
 
@@ -78,26 +102,30 @@ th {
 
 
 button, input[type="button"], input[type="submit"] { 
-  color:#050; 
-  font: bold 84% 'trebuchet ms',helvetica,sans-serif; 
-  background-color:#fed; 
+  color: grey;
+  font-family: 'Fredoka One', cursive;
+  font-size: 12px; 
+  font-weight: 400;
+  background-color: white; 
   border:1px solid; 
-  border-color: #696 #363 #363 #696; 
+  border-color: grey
 } 
 
 .btn-primary, .favorite-btn {
-  color:#050; 
-  font: bold 84% 'trebuchet ms',helvetica,sans-serif; 
-  background-color:#fed; 
+  color: grey;
+  font-family: 'Fredoka One', cursive;
+  font-size: 12px; 
+  font-weight: 400;
+  background-color: white; 
   border:1px solid; 
-  border-color: #696 #363 #363 #696; 
+  border-color: grey;
   margin: 5px;
 }
 
 
 .btn-primary:hover {
-  background-color: rgb(189, 188, 112);
-  color:rgb(75, 83, 32);
+  background-color: grey;
+  color: white;
 }
 
 .no-bullet {
@@ -106,7 +134,7 @@ button, input[type="button"], input[type="submit"] {
 }
 
 .btn.btn-primary.btn-sm {
-  font-size: 10px;
+  font-size: 5px;
   padding: 5px 10px;
   border-radius: 3px;
   background-color: #211, 211, 211;
@@ -126,51 +154,33 @@ button.add-favorite:focus,
 button.add-favorite:active {
   outline: none;
   box-shadow: none;
-  background-color: #fed;
-  color:rgb(75, 83, 32);
+  background-color: white;
+  color: grey;
 }
 
 
-
-.button-73 {
-  appearance: none;
-  background-color: #FFFFFF;
-  border-radius: 40em;
-  border-style: none;
-  box-shadow: #ADCFFF 0 -12px 6px inset;
-  box-sizing: border-box;
-  color: #000000;
-  cursor: pointer;
-  display: inline-block;
-  font-family: -apple-system,sans-serif;
-  font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: -.24px;
-  margin: 0;
-  outline: none;
-  padding: 1rem 1.3rem;
-  quotes: auto;
-  text-align: center;
-  text-decoration: none;
-  transition: all .15s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+.form-container {
+  float: right;
+  margin-top: -275px;
+  padding-left: 100px;
 }
 
-.button-73:hover {
-  background-color: #135fa6;
-  box-shadow: #45413f 0 -6px 8px inset;
-  transform: scale(1.125);
+.ono-sweets {
+  padding-top: 10px;
+  /* text-align: 500px; */
 }
 
-.button-73:active {
-  transform: scale(1.025);
+
+.resources-pics {
+    width: 10%;
+    height: auto;
+    border: 1pt solid rgb(50, 48, 48);
 }
 
-@media (min-width: 768px) {
-  .button-73 {
-    font-size: 1.5rem;
-    padding: .75rem 2rem;
-  }
+
+.homepage-fields {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    margin-right: 10rem;
 }
+
