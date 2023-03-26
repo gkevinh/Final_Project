@@ -11,6 +11,7 @@
       background-repeat: no-repeat;
       background-position: center center;
       height: 100vh;
+      overflow: hidden;
     }
   </style>
 
@@ -19,16 +20,19 @@
 
 {% block body %}
 
+<style>
+  body {
+    text-shadow: 2px 2px #000;
+  }
+</style>
+
 <div class="ono-sweets">
   <h1>Ono</h1>
   <h1>Sweets</h1>
+
 </div>
 <div class="form-container">
-  <ul>
-    {% for message in get_flashed_messages() %}
-      <li class="flash">{{ message }}</li>
-    {% endfor %}
-  </ul>
+
   <div class="homepage-fields">
   <h2>Create an Account</h2>
   <br>
@@ -87,6 +91,14 @@
         <br>
       </a>
     </p>
+    <div class="flash-messages">
+      <br>
+      <ul>
+        {% for message in get_flashed_messages() %}
+          <li class="flash">{{ message }}</li>
+        {% endfor %}
+      </ul>
+      </div>
   </form>
   </div>  
 </div>

@@ -2,8 +2,7 @@ body {
   background-color: rgb(151, 222, 255);
   font-family: 'Fredoka One';
   font-size: 16px; 
-  color: rgb(58, 152, 185);
-  
+  color: rgb(177, 175, 255); 
 }
 
 .homepage {
@@ -69,13 +68,16 @@ pre {
 
 h1 {
   font-family: 'Fredoka One';
-  font-size: 135px;
+  font-size: 145px;
+  color: rgb(251, 207, 252)
 }
 
 h2 {
   font-family: 'Fredoka One';
   font-size: 26px; 
   font-weight: 400;
+  color:rgb(127, 120, 210);
+  text-shadow: 2px 2px #000;
 }
 
 
@@ -93,11 +95,18 @@ th {
 .row > * {
   padding-left: 0;
   padding-right: 0;
+  color: rgb(127, 120, 210);
 }
 
 .row > .above {
   margin-bottom: 0;
   margin-top: 10px;
+  color: rgb(127, 120, 210);
+}
+
+
+.results {
+  color: rgb(127, 120, 210)
 }
 
 
@@ -120,6 +129,7 @@ button, input[type="button"], input[type="submit"] {
   border:1px solid; 
   border-color: grey;
   margin: 5px;
+  text-shadow: none;
 }
 
 
@@ -167,9 +177,14 @@ button.add-favorite:active {
 
 .ono-sweets {
   padding-top: 10px;
-  /* text-align: 500px; */
+  text-shadow: 2px 2px #000;
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  margin-left: 75px;
+  margin-top: 20px;
 }
-
 
 .resources-pics {
     width: 10%;
@@ -179,8 +194,29 @@ button.add-favorite:active {
 
 
 .homepage-fields {
-    margin-top: 0;
+    margin-top: -50px;
     margin-bottom: 1rem;
-    margin-right: 10rem;
+    margin-right: 15rem;
+    color: rgb(127, 120, 210);
 }
 
+
+.flash-messages {
+  margin-top: -20px;
+  color: rgb(207, 241, 239);
+  padding: -15px;
+  margin-bottom: 16px;
+}
+
+
+.form-label {
+  color: grey
+}
+
+.favs {
+  color: rgb(127, 120, 210);
+}
+
+.list-unstyled {
+  color: rgb(127, 120, 210);
+}
