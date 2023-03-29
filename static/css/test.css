@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(151, 222, 255);
+  background-color: whitesmoke;
   font-family: 'Fredoka One';
   font-size: 16px; 
   color: rgb(177, 175, 255); 
@@ -42,7 +42,7 @@ body {
 }
 
 .list-group-item {
-  background-color: rgb(201, 238, 255);
+  background-color: whitesmoke;
 }
 
 img{
@@ -120,6 +120,7 @@ button, input[type="button"], input[type="submit"] {
   border-color: grey
 } 
 
+
 .btn-primary, .favorite-btn {
   color: grey;
   font-family: 'Fredoka One', cursive;
@@ -179,7 +180,6 @@ button.add-favorite:active {
   padding-top: 10px;
   text-shadow: 2px 2px #000;
   grid-area: header;
-  display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
   margin-left: 75px;
@@ -219,4 +219,66 @@ button.add-favorite:active {
 
 .list-unstyled {
   color: rgb(127, 120, 210);
+}
+
+.search {
+  padding-top: 5rem;
+  font-size: 85px;
+}
+
+
+.bus-name {
+  font-size: 50px;
+}
+
+
+#venue-container.container3 {
+  padding-left: 10rem;
+}
+
+
+.fun-facts {
+  color: rgb(127, 120, 210);
+}
+
+
+
+.button-89 {
+  --b: 3px;   /* border thickness */
+  --s: .45em; /* size of the corner */
+  --color: #373B44;
+  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-89:hover,
+.button-89:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.button-89:active {
+  background: var(--color);
+  color: #fff;
+}
+
+
+.profile-block {
+  text-align: center;
 }

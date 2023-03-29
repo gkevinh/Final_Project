@@ -4,13 +4,13 @@
 
 {% block body %}
 
-<div class="container">
+<div id="venue-container" class="container3">
   <div class="row">
     <div class="col">
-      <h2 style="margin-top: 1in;">{{ business['name'] }}</h2>
+      <h2 class="search">{{ business['name'] }}</h2>
     </div>
   </div>
-
+  <br>
   <div class="row">
     <div class="col col-md-4">
       <img src="{{ business['image_url'] }}">

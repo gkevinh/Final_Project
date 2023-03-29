@@ -2,13 +2,38 @@
 
 {% block title %}Search For Desserts{% endblock %}
 
+{% block head %}
+<style>
+  body {
+    background-image: url('/static/img/dessert.jpg');
+    background-size: 53% auto;
+    background-repeat: no-repeat;
+    background-position: right center;
+    height: 100vh;
+    overflow: hidden;
+  }
+</style>
+
+<!-- <style>
+  body {
+    background-image: url('/static/img/dessert.jpeg');
+    background-size: cover; /* This will make the background image cover the entire body of the webpage */
+    background-position: center center; /* This will center the background image horizontally and vertically */
+    background-repeat: no-repeat;
+    height: 100vh;
+  }
+</style> -->
+
+
+{% endblock %}
+
 {% block body %}
 
 <div style="margin-left: -1in;"> 
 <div class="container">
   <div class="row">
     <div class="col">
-      <h2 style="margin-left: -10px;margin-top: 1in;">Search for Desserts</h2>
+      <h2 class="search" style="margin-left: -10px;margin-top: 1.65in;">Search for <br> Desserts</h2>
 
       <form method="GET" action="/venues/search">
         <div class="row">
@@ -17,15 +42,24 @@
         </div>
 
         <div class="row">
-          <label class="form-label above" for="search-zip">Zip Code | City, State</label>
+          <!-- <label class="form-label above" for="search-zip">Zip Code | City, State</label> -->
 
-          <input
+          <!-- <input
             id="search-zip"
             class="form-control"
             type="text"
             name="zipcode"
             style="width: 3in;"
+          > -->
+          <input
+            id="search-zip"
+            class="form-control"
+            type="text"
+            name="zipcode"
+            placeholder="Zip Code | City, State"
+            style="width: 2in;"
           >
+
         </div>
         <div class="row mt-4">
           <div class="col-3">

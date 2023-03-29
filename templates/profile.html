@@ -1,19 +1,28 @@
 {% extends 'base.html' %}
 
-{% block title %}User Profile{% endblock %}
+{% block title %}Your Profile{% endblock %}
 
 {% block head %}
-  <style>
-    body {
-      margin-left: 120px;
-      margin-top: 1in;
-    }
-  </style>
+
+
+<style>
+  body {
+    margin-top: 1in;
+    margin-left: 0px;
+  }
+
+  .sticky {
+    position: sticky;
+    top: 0;
+    background-color: whitesmoke;
+    z-index: 1;
+  }
+</style>
 
 {% endblock %}
 
 {% block body %}
-  <h2>{{ user.fname }} {{ user.lname }}</h2>
+  <!-- <h2>{{ user.fname }} {{ user.lname }}</h2>
   <p><strong>Email:</strong> {{ user.email }}</p>
   <div class="d-inline-block">
     <a class="btn btn-primary" href="/">Home</a>
@@ -22,6 +31,19 @@
 <br>
   <div class="d-inline-block">
     <a class="btn btn-primary" href="/venue">Search</a>
+  </div> -->
+  <div class="profile-block">
+  <div class="sticky">
+    <h2>{{ user.fname }} {{ user.lname }}</h2>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <div class="d-inline-block">
+      <a class="btn btn-primary" href="/">Home</a>
+    </div>
+    <br>
+    <br>
+    <div class="d-inline-block">
+      <a class="btn btn-primary" href="/venue">Search</a>
+    </div>
   </div>
   <br>
   <br>
@@ -40,4 +62,5 @@
   {% else %}
     <p>No favorites yet.</p>
   {% endif %}
+  </div>
 {% endblock %}

@@ -53,7 +53,7 @@ def process_login():
 
     user = crud.get_user_by_email(email)
     if not user or user.password != password:
-        flash("The email or password you entered was incorrect.")
+        flash("Information was incorrect.")
     else:
         # Log in user by storing the user's email in session
         session["user_email"] = user.email
