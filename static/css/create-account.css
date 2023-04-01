@@ -15,6 +15,7 @@ body {
     font-size: 25px;
     text-align: left;
     padding-left: 100px;
+    padding-top: 50px;
     color: rgb(57, 54, 54);
 }
 
@@ -22,7 +23,7 @@ body {
 .class-1 {
     font-size: 18px;
     font-weight: bold;
-    --b: 5px;   /* border thickness */
+    --b: 2px;   /* border thickness */
     --s: .45em; /* size of the corner */
     --color: #333435;
     
@@ -64,3 +65,16 @@ body {
   padding-left: 0;
 }
 
+
+.btn-primary {
+  color: black;
+  background-color: transparent; 
+  border-color: transparent;
+  font-size: 15px;
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  border-color: transparent;
+  color: black;
+}

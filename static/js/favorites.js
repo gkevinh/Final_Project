@@ -33,13 +33,16 @@ function addFavorite(external_id, venue_name, phone, address, rating, review_cou
   .then((response) => response.json())
   .then((data) => {
     if (data.success) {
-      alert('Added to favorites!');  
+      // alert('Added to favorites!');  
+      swal("Added to favorites!");
     } else {
-      alert(data.message);
+      // alert(data.message);
+      swal("Already a favorite!");
     }
   })
   .catch(function(error) {
     console.error('Error adding favorite:', error);
-    alert('Error adding to favorites.');
+    // alert('Error adding to favorites.');
+    swal("Error adding to favorites");
   });
 }

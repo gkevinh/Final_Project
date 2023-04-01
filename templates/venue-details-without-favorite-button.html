@@ -1,14 +1,51 @@
-{% extends 'base.html' %}
-
-{% block title %}Venue Details | {{ business['name'] }}{% endblock %}
-
-{% block body %}
-
-<div id="venue-container" class="container3">
-  <div class="row">
-    <div class="col">
-      <h2 class="search">{{ business['name'] }}</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Details</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/css/venue-details-without-favorite-button.css">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://kit.fontawesome.com/3929e16ef5.js" crossorigin="anonymous"></script>
+</head>
+<div class="row justify-content-center">
+  <nav class="navbar navbar-expand-md nav-transparent w-100">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/venue">SEARCH</a>
+      <div id="navbar" class="navbar-collapse collapse navbar-expand-lg">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/map/directions/{{ business['id'] }}" target="blank">DIRECTIONS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/profile">PROFILE</a>
+          </li>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/resources">RESOURCES</a>
+            </li>
+          </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">LOGOUT</a>
+          </li>
+        </ul>
+      </div>
+      <p class="my-auto">
+        Ono Sweets
+      </p>
     </div>
+  </nav>
+</div>
+
+<div class="container">
+  <div class="row2">
+    <div class="col2">
+      <h2 class="bus-name">{{ business['name'] }}</h2>
+    </div>
+    <br>
   </div>
   <br>
   <div class="row">
@@ -37,39 +74,12 @@
       {% else %}
         <h6>OPEN NOW</h6>
       {% endif %}
-      <p hidden> {{ business['coordinates']}}</p>   
+      <p hidden> {{ business['coordinates']}}</p>  
+      <div class="h_container remove-favorite">
+        <i id="heart" class="far fa-heart"></i>
+      </div> 
     </div>
-    <p>
-      <br>
-      <a class="btn btn-primary" href="/map/directions/{{ business['id'] }}">
-        Directions
-      </a>
-    </p>
-    <p>
-      <button class="btn btn-primary remove-favorite">Delete Favorite</button>
-    </p>
-      <p>
-        <a class="btn btn-primary" href="/venue">
-          Search
-          </a>
-      </p>
-      <p>
-        <a class="btn btn-primary" href="/profile">
-          Your Profile
-        <br>
-      </a>
-      </p>
-      <p>
-        <a href="/logout" class="btn btn-primary">
-          Logout
-          <br>
-        </a>
-      </p>
-    </p>
-
     <script src="/static/js/remove_fav.js"></script>
   </div>
 </div>
-{% endblock %}
-
 

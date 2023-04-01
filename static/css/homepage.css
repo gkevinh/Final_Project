@@ -11,10 +11,16 @@ body {
   height: 100vh;
 }
 
+h1 {
+  font-size: 150px;
+  font-weight: 800;
+}
+
+
 .ono-sweets {
   font-family: 'Fredoka', sans-serif;
   font-size: 60px;
-  font-weight: 700;
+  font-weight: 800;
   color: rgb(251, 207, 252);
   text-align: center;
   text-shadow: 2px 2px 0 #000000, -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000; 
@@ -23,12 +29,13 @@ body {
 .login {
   text-align: center;
   font-size: 25px;
+  font-weight: 400;
 }
 
 
 .class-1 {
-    --b: 5px;   /* border thickness */
-    --s: .45em; /* size of the corner */
+    --b: 2px;   
+    --s: .45em; 
     --color: #f7f8fa;
     
     padding: calc(.5em + var(--s)) calc(.9em + var(--s));
@@ -49,7 +56,7 @@ body {
     touch-action: manipulation;
   }
 
-  .class-1:hover,
+.class-1:hover,
 .class-1:focus-visible{
   --_p: 0px;
   outline-color: var(--color);
@@ -61,11 +68,6 @@ body {
   color: #fff;
 }
   
-.class-2 {
-    color: white;
-    font-size: 25px;
-}
-  
 
 .flashes {
   font-family: Arial, sans-serif;
@@ -73,4 +75,18 @@ body {
   font-weight: bold;
   color: #0c0c0c;
   padding-left: 0;
+}
+
+
+.btn-primary {
+  color: #fff;
+  background-color: transparent; 
+  border-color: transparent;
+  font-size: 15px;
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  border-color: transparent;
+  color: whitesmoke
 }

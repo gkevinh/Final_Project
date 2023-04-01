@@ -32,13 +32,16 @@ removeFavoriteButton.addEventListener('click', (evt) => {
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
-        alert('Removed from favorites!');  
+        // alert('Removed from favorites!'); 
+        swal("Removed from favorites!"); 
       } else {
-        alert('Error removing from favorites.');
+        // alert('Error removing from favorites.');
+        swal("Cannot remove. Not a favorite.");         
       }
     })
     .catch(function(error) {
       console.error('Error removing favorite:', error);
-      alert('Error removing from favorites.');
+      // alert('Error removing from favorites.');
+      swal("Cannot remove. Not a favorite.");   
     });
   }
