@@ -1,0 +1,179 @@
+body {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/static/img/icecreampurple.jpg.webp');
+    background-attachment: fixed; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    font-family: 'Nunito', 'Helvetica', sans-serif;
+    height: 100vh;
+    font-size: 16px; 
+    color: white
+  }
+
+
+
+  .sticky-1 {
+    position: sticky;
+    top: 0;
+    z-index:1;
+    width: 100%;
+    z-index: 999;
+  }
+
+  .sticky-2 {
+    position: sticky;
+    width: 100%;
+    text-align: left;
+    top: 135px;
+    padding-left: 135px;
+    z-index:2;
+    bottom: 0;
+    z-index: 999;
+  }
+  
+  .list-unstyled {
+    margin: 0;
+    padding: 0;
+  }
+  
+ 
+  
+
+  h1 {
+    font-family: 'Nunito', 'Helvetica', sans-serif;
+    font-size: 145px;
+    color: rgb(251, 207, 252)
+  }
+  
+  h2 {
+    font-family: 'Nunito', 'Helvetica', sans-serif;
+    font-size: 40px; 
+    font-weight: 800;
+    color:white;    
+  }
+  
+  
+  h3,
+  h4,
+  h5,
+  h6,
+  th {
+    font-family: 'Nunito', 'Helvetica', sans-serif;
+    font-size: 16px; 
+    font-weight: 400;
+    color: white;
+  }
+
+
+  .favs {
+    position: sticky;
+    color: white;
+    font-size: 25px;
+    text-decoration: underline;
+  }
+ 
+  
+  .flash-messages {
+    margin-top: -20px;
+    color: rgb(207, 241, 239);
+    padding: -15px;
+    margin-bottom: 16px;
+  }
+  
+  
+  .form-label {
+    color: grey
+  }
+  
+  
+  .search {
+    padding-top: 5rem;
+    font-size: 85px;
+  }
+  
+  
+  .profile-block {
+    text-align: center;
+  }
+
+
+  button.btn-link {
+    color: white;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+.homepage nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999; 
+  }
+  
+  .nav-transparent {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), transparent);
+    font-size: 1.2em;
+    z-index: 100;
+  }
+  
+  .nav-transparent .nav-link,
+  .nav-transparent .navbar-brand,
+  .nav-transparent p {
+    color: white;
+  }
+  
+  .nav-transparent .navbar-brand {
+    font-weight: bold;
+  }
+  
+  .nav-transparent .navbar-brand:hover,
+  .nav-transparent .nav-link:hover {
+    color: rgb(27, 202, 229)
+  }
+  
+  .homepage > section.container-fluid,
+  .homepage > section.container {
+    width: 100vw;
+    height: 100vh;
+    padding-top: 56px;
+  }
+  
+  .demo-2 {
+    position: relative;
+  }
+  
+  .demo-2-bg {
+    background-color: #facfe4; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  
+
+
+
+  @media (max-width: 767px) { /* adjust styles for screens smaller than 768px (i.e. iPhones) */
+    .navbar-collapse {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .nav-link {
+      display: block;
+      margin-bottom: 10px;
+    }
+  }

@@ -1,59 +1,28 @@
-{% extends 'base.html' %}
-{% block title %}Ono Sweets{% endblock %}
-
-
-{% block head %}
-
-  <style>
-    body {
-      background-image: url('/static/img/pxfuel.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
-      height: 100vh;
-      overflow: hidden;
-    }
-  </style>
-
-  
-{% endblock %}
-
-{% block body %}
-
-<style>
-  body {
-    text-shadow: 2px 2px #000;
-  }
-</style>
-
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/css/homepage.css">
+</head>
+<body>
 <div class="ono-sweets">
-  <h1>Ono</h1>
-  <h1>Sweets</h1>
+  <h1>Ono Sweets</h1>
 </div>
-<div class="form-container">
-  <div class="homepage-fields">
-    <h2>Create an Account</h2>
-    <br>
-    <form action="/user" method="POST">
-      <p>
-        First Name <input type="text" name="fname">
-      </p>    
-      <p>
-        Last Name <input type="text" name="lname">
-      </p>
-      <p>
-        Email <input type="text" name="email">
-      </p>
-      <p>
-        Password <input type="password" name="password">
-      </p>
-      <p>
-        <input type="submit" value="Submit" class="btn btn-primary">
-      </p>
-    </form>
+    <div class="login">
     <h2>Log In</h2>
-    <br>
     <form action="/login" method="POST">
+      {% with message = get_flashed_messages() %}
+      {% if message %}
+        <ul class="flashes">
+          <h3>{{ message[0] }}</h3>
+        </ul>
+      {% endif %}
+      {% endwith %}
       <p>
         Email <input type="text" name="email">
       </p>
@@ -61,41 +30,14 @@
         Password <input type="password" name="password">
       </p>
       <p>
-        <input type="submit" value="Submit" class="btn btn-primary">
+        <input type="submit" value="Submit" class="btn btn-primary class-1">
       </p>
-      <p>
-        <a class="btn btn-primary" href="/venue">
-          Search
-          <br>
-        </a>
-      </p>
-      <p>
-        <a class="btn btn-primary" href="/profile">
-          Your Profile
-          <br>
-        </a>
-      </p>
-      <p>
-        <a class="btn btn-primary" href="/resources">
-          Additional Resources
-          <br>
-        </a>
-      </p>
-      <p>
-        <a class="btn btn-primary" href="/logout">
-          Log Out
-          <br>
-        </a>
-      </p>
-      <div class="flash-messages">
-        <br>
-        <ul>
-          {% for message in get_flashed_messages() %}
-            <li class="flash">{{ message }}</li>
-          {% endfor %}
-        </ul>
-      </div>
+     <p>
+      <a class="btn btn-primary class-2" href="/create_account">
+        Create Account
+      </a>
+    </p>
     </form>
-  </div>  
-</div>
-{% endblock %}
+    </div>
+</body>
+</html>

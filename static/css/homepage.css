@@ -1,0 +1,76 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/static/img/pxfuel.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  font-family: 'Fredoka', sans-serif;
+  height: 100vh;
+}
+
+.ono-sweets {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 60px;
+  font-weight: 700;
+  color: rgb(251, 207, 252);
+  text-align: center;
+  text-shadow: 2px 2px 0 #000000, -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000; 
+}
+
+.login {
+  text-align: center;
+  font-size: 25px;
+}
+
+
+.class-1 {
+    --b: 5px;   /* border thickness */
+    --s: .45em; /* size of the corner */
+    --color: #f7f8fa;
+    
+    padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+    color: var(--color);
+    --_p: var(--s);
+    background:
+      conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+      var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+    transition: .3s linear, color 0s, background-color 0s;
+    outline: var(--b) solid #0000;
+    outline-offset: .6em;
+    font-size: 16px;
+  
+    border: 0;
+  
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+
+  .class-1:hover,
+.class-1:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.class-1:active {
+  background: var(--color);
+  color: #fff;
+}
+  
+.class-2 {
+    color: white;
+    font-size: 25px;
+}
+  
+
+.flashes {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #0c0c0c;
+  padding-left: 0;
+}

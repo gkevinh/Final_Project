@@ -1,25 +1,34 @@
-{% extends 'base.html' %}
-
-{% block title %}Ono Sweets{% endblock %}
-
-{% block body %}
-
+<!DOCTYPE html>
+<html><head>
+  <title>Search Results</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/css/search-results.css">
+</head>
   <br>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-auto">
-        <a href="/venue" class="btn btn-primary">
-          Search
-        </a>
-        &nbsp &nbsp &nbsp
-        <a href="/" class="btn btn-primary">
-          Home
-        </a>
-        &nbsp &nbsp &nbsp
-        <a class="btn btn-primary" href="/profile">
-          Your Profile
-        </a>
-      </div>
+      <nav class="navbar navbar-expand-md nav-transparent w-100">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/venue">SEARCH</a>
+          <div id="navbar" class="navbar-collapse collapse navbar-expand-lg">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="/profile">PROFILE</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">LOGOUT</a>
+              </li>
+            </ul>
+          </div>
+          <p class="my-auto">
+            Ono Sweets
+          </p>
+        </div>
+      </nav>
     </div>
     <div id="event-search-results">
       <h2 class="search">Search Results</h2>
@@ -44,8 +53,8 @@
               <div class="col-md-9">
                 <div class="row">
                   <div class="col-md-6">
-                    <a href="/venue/{{ business['id'] }}" target="_blank">
-                      <h5>{{ business['name'] }}</h5>
+                    <a href="/venue/{{ business['id'] }}">
+                      <h5 class="business-name">{{ business['name'] }}</h5>
                     </a>
                     <h6>phone: {{ '(' + business['phone'][2:5] + ') ' + business['phone'][5:8] + '-' + business['phone'][8:] }}</h6>
                   </div>
@@ -55,10 +64,15 @@
                     <h6>review count: {{ business['review_count'] }}</h6>
                   </div>
                 </div>
-
                 <div class="row">
                   <div class="col-md-12">
                     <h6>{{ business['location']['address1'] }}<br>{{ business['location']['city'] }}, {{ business['location']['state'] }} {{ business['location']['zip_code'] }}</h6>
+                    <hidden id="is_closed" hidden> {{business['is_closed']}} </hidden>
+                    <h6>{% if business['is_closed'] %}</h6>
+                    <h6>CLOSED</h6>
+                      {% else %}
+                    <h6>OPEN NOW</h6>
+                      {% endif %}
                   </div>
                 </div>
               </div>
@@ -68,4 +82,3 @@
       </ul>
     </div>
   </div>
-{% endblock %}

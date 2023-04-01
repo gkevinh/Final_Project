@@ -23,6 +23,15 @@ def homepage():
     return render_template('homepage.html')
 
 
+
+@app.route('/create_account')
+def create_account():
+    """Create user account."""
+
+    return render_template('create-account.html')
+
+
+
 @app.route("/user", methods=["POST"])
 def register_user():
     """Create a new user."""
@@ -35,6 +44,8 @@ def register_user():
     user = crud.get_user_by_email(email)
     if user:
         flash("Cannot create an account with that email. Try again.")
+        return render_template('create-account.html')
+    
     else:
         user = crud.create_user(fname, lname, email, password)
         db.session.add(user)
@@ -54,14 +65,17 @@ def process_login():
     user = crud.get_user_by_email(email)
     if not user or user.password != password:
         flash("Information was incorrect.")
+        return redirect("/")
+        
+       
     else:
         # Log in user by storing the user's email in session
         session["user_email"] = user.email
         flash(f"Welcome back, {user.fname}")
-
-    return redirect("/")
-
-
+        return redirect("/venue")
+    
+    
+    
 @app.route('/venue')
 def show_search_form():
     """Show search form"""
@@ -137,6 +151,11 @@ def get_venue_details(id):
 @app.route('/map/directions/<id>')
 def get_directions(id):
     """Creates map and directions."""
+
+    if 'user_email' not in session:
+        flash('You need to log in to view map details.')
+        return redirect('/')
+
     url = f'https://api.yelp.com/v3/businesses/{id}'
     headers = {'Authorization': 'Bearer %s' % YELP_API_KEY}
     payload = {'apikey': YELP_API_KEY}
@@ -264,6 +283,9 @@ def remove_favorite():
 @app.route('/resources')
 def resources():
     """Additional Hawaii resources"""
+    if 'user_email' not in session:
+        flash('You need to log in to view resources.')
+        return redirect('/')
 
     return render_template('resources.html')
 

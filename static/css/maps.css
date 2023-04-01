@@ -5,7 +5,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: sans-serif;
+  font-family: 'Nunito', 'Helvetica', sans-serif;
   color: white
 }
 
@@ -31,7 +31,7 @@ h1 {
 }
 
 #directions-panel, .directions-panel {
-  font-family: sans-serif;
+  font-family: 'Nunito', 'Helvetica', sans-serif;
   background-color: rgb(232, 246, 239);
   flex: 1; 
   overflow-y: auto;
@@ -63,3 +63,15 @@ h1 {
   height: auto;
 }
 
+
+@media (max-width: 768px) {
+  #map-container {
+    flex-direction: column;
+  }
+  #map, .map {
+    height: 50%;
+  }
+  #directions-panel, .directions-panel {
+    height: 50%;
+  }
+}

@@ -1,8 +1,14 @@
-{% extends 'base.html' %}
-
-{% block title %}Venue Details | {{ business['name'] }}{% endblock %}
-
-{% block body %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Details</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/css/venue-details.css">
+</head>
 
 <div class="container">
   <div class="row2">
@@ -41,7 +47,7 @@
     </div>
     <p>
       <br>
-      <a class="btn btn-primary" href="/map/directions/{{ business['id'] }}">
+      <a class="btn btn-primary" href="/map/directions/{{ business['id'] }}" target="_blank">
         Directions
       </a>
     </p>
@@ -54,14 +60,14 @@
           </a>
       </p>
       <p>
-      <a class="btn btn-primary" href="/">
-        Home
+        <a class="btn btn-primary" href="/profile">
+          Your Profile 
         <br>
       </a>
       </p>
       <p>
-        <a class="btn btn-primary" href="/profile">
-          Your Profile 
+        <a href="/logout" class="btn btn-primary">
+          Logout
           <br>
         </a>
       </p>
@@ -70,4 +76,4 @@
     <script src="/static/js/favorites.js"></script>
   </div>
 </div>
-{% endblock %}
+

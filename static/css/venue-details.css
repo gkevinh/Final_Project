@@ -1,0 +1,159 @@
+body {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/static/img/chinamanhatright.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    background-color: aliceblue;
+    font-family: 'Nunito', 'Helvetica', sans-serif;
+    font-size: 16px; 
+    color: black;
+  }
+  
+  
+  .list-group-item {
+    background-color: whitesmoke;
+  }
+  
+  img{
+    width:41%;
+    height:auto;
+    border:1pt solid rgb(50, 48, 48);
+  }
+  
+
+  
+  h1 {
+    font-family: 'Nunito', 'Helvetica', sans-serif;
+    font-size: 145px;
+    color: black;
+  }
+  
+  h2 {
+    font-family: 'Nunito', 'Helvetica', sans-serif;
+    font-size: 26px; 
+    font-weight: 400;
+    color:black;
+  }
+  
+  
+  h3,
+  h4,
+  h5,
+  h6,
+  th {
+    font-family: 'Nunito', 'Helvetica', sans-serif;
+    font-size: 16px; 
+    font-weight: 400;
+  }
+  
+  
+
+  .form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* float: right; */
+    /* margin-top: -275px; */
+    padding-top: 20px;
+    padding-left: 50px;
+  }
+  
+  .homepage-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .homepage-container {
+      flex-direction: row;
+    }
+  }
+
+  
+  
+  .flash-messages {
+    margin-top: -20px;
+    color: rgb(207, 241, 239);
+    padding: -15px;
+    margin-bottom: 16px;
+  }
+  
+  
+  .form-label {
+    color: grey
+  }
+  
+  .favs {
+    color: rgb(127, 120, 210);
+  }
+  
+  .list-unstyled {
+    color: rgb(127, 120, 210);
+  }
+  
+  .search {
+    padding-top: 5rem;
+    font-size: 85px;
+  }
+  
+  
+  .bus-name {
+    font-size: 50px;
+  }
+  
+  
+  #venue-container.container3 {
+    padding-left: 10rem;
+  }
+  
+  
+  .fun-facts {
+    color: rgb(127, 120, 210);
+  }
+  
+  
+  
+  .button-89 {
+    --b: 3px;   /* border thickness */
+    --s: .45em; /* size of the corner */
+    --color: #373B44;
+    
+    padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+    color: var(--color);
+    --_p: var(--s);
+    background:
+      conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+      var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+    transition: .3s linear, color 0s, background-color 0s;
+    outline: var(--b) solid #0000;
+    outline-offset: .6em;
+    font-size: 16px;
+  
+    border: 0;
+  
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .button-89:hover,
+  .button-89:focus-visible{
+    --_p: 0px;
+    outline-color: var(--color);
+    outline-offset: .05em;
+  }
+  
+  .button-89:active {
+    background: var(--color);
+    color: #fff;
+  }
+  
+  
+  .profile-block {
+    text-align: center;
+  }

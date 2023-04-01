@@ -1,0 +1,142 @@
+body {
+  background-color: rgb(220,220,220);
+  font-family: 'Nunito', 'Helvetica', sans-serif;
+  font-size: 16px; 
+  color: black;
+}
+
+
+.event-search-results {
+  background-color: aliceblue
+}
+
+.list-group-item {
+  background-color: transparent;
+}
+
+
+img{
+  width:41%;
+  height:auto;
+  border:1pt solid rgb(50, 48, 48);
+}
+
+.cover{
+  object-fit: cover;
+  object-position: center;
+}
+.contain{
+  object-fit: contain;
+}
+
+pre {
+  height: 150px;
+  overflow-y: scroll;
+  font-size: 11px;
+  resize: vertical;
+}
+
+
+h2 {
+  font-family: 'Nunito', 'Helvetica', sans-serif;
+  font-size: 26px; 
+  font-weight: 400;
+  color:black;
+  font-weight: 500px;
+}
+
+
+h3,
+h4,
+h5,
+h6,
+th {
+  font-family: 'Nunito', 'Helvetica', sans-serif;
+  font-size: 16px; 
+  font-weight: 400;
+}
+
+
+
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 50px;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .homepage-container {
+    flex-direction: row;
+  }
+}
+
+
+
+.search {
+  padding-top: 1rem;
+  font-size: 35px;
+  font-weight: 300;
+}
+
+
+
+.homepage nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.nav-transparent {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), transparent);
+  font-size: 1.2em;
+  z-index: 100;
+}
+
+.nav-transparent .nav-link,
+.nav-transparent .navbar-brand,
+.nav-transparent p {
+  color: black;
+}
+
+.nav-transparent .navbar-brand {
+  font-weight: bold;
+}
+
+.nav-transparent .navbar-brand:hover,
+.nav-transparent .nav-link:hover {
+  color: white;
+}
+
+.homepage > section.container-fluid,
+.homepage > section.container {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 56px;
+}
+
+.demo-2 {
+  position: relative;
+}
+
+.demo-2-bg {
+  background-color: #facfe4; 
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+
+.business-name {
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+
+.list-group-item:hover {
+  background-color: rgb(220,231,236);
+}

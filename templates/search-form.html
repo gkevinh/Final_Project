@@ -1,47 +1,48 @@
-{% extends 'base.html' %}
-
-{% block title %}Search For Desserts{% endblock %}
-
-{% block head %}
-<style>
-  body {
-    background-image: url('/static/img/dessert.jpg');
-    background-size: 53% auto;
-    background-repeat: no-repeat;
-    background-position: right center;
-    height: 100vh;
-    overflow: hidden;
-  }
-</style>
-
-<!-- <style>
-  body {
-    background-image: url('/static/img/dessert.jpeg');
-    background-size: cover; /* This will make the background image cover the entire body of the webpage */
-    background-position: center center; /* This will center the background image horizontally and vertically */
-    background-repeat: no-repeat;
-    height: 100vh;
-  }
-</style> -->
-
-
-{% endblock %}
-
-{% block body %}
-
-<div style="margin-left: -1in;"> 
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h2 class="search" style="margin-left: -10px;margin-top: 1.65in;">Search for <br> Desserts</h2>
-
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/search-form.css">
+</head>
+<div class="row justify-content-center">
+  <nav class="navbar navbar-expand-md nav-transparent w-100">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/venue">SEARCH</a>
+      <div id="navbar" class="navbar-collapse collapse navbar-expand-lg">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/profile">PROFILE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">LOGOUT</a>
+          </li>
+        </ul>
+      </div>
+      <p class="my-auto">
+        Ono Sweets
+      </p>
+    </div>
+  </nav>
+</div>
+  <div class="container">
+  <div class="message">
+  {% with message = get_flashed_messages() %}
+  {% if message %}
+    <ul class="flashes">
+      <h3>{{ message[0] }}</h3>
+    </ul>
+  {% endif %}
+  {% endwith %}
+  </div>
+      <div class="search">Search for Desserts</div>
+      <br>
       <form method="GET" action="/venues/search">
-        <div class="row">
-          <small class="form-text text-muted">
-          </small>
-        </div>
 
-        <div class="row">
           <!-- <label class="form-label above" for="search-zip">Zip Code | City, State</label> -->
 
           <!-- <input
@@ -59,29 +60,6 @@
             placeholder="Zip Code | City, State"
             style="width: 2in;"
           >
-
-        </div>
-        <div class="row mt-4">
-          <div class="col-3">
-            <input type="submit" value="Search" class="btn btn-primary">
-            <p>
-              <br>
-              <a class="btn btn-primary" href="/profile">
-                Your Profile
-                <br>
-              </a>
-              <br>
-              <br>
-              <a class="btn btn-primary" href="/">
-                Home
-                <br>
-              </a>
-            </p>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
+            <button type="submit" value="Search" class="btn btn-primary class-3" role="button">Search</button>
+        </form>
 </div>
-</div>
-{% endblock %}

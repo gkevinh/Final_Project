@@ -171,9 +171,25 @@ button.add-favorite:active {
 
 
 .form-container {
-  float: right;
-  margin-top: -275px;
-  padding-left: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  /* float: right; */
+  /* margin-top: -275px; */
+  padding-top: 20px;
+  padding-left: 50px;
+}
+
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 768px) {
+  .homepage-container {
+    flex-direction: row;
+  }
 }
 
 .ono-sweets {
@@ -194,9 +210,9 @@ button.add-favorite:active {
 
 
 .homepage-fields {
-    margin-top: -50px;
+    /* margin-top: -50px;
     margin-bottom: 1rem;
-    margin-right: 15rem;
+    margin-right: 15rem; */
     color: rgb(127, 120, 210);
 }
 
