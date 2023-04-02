@@ -1,0 +1,82 @@
+body {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/static/img/searchresultspic2.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    background-color: aliceblue;
+    font-family: 'Nunito', 'Helvetica', sans-serif;
+    font-size: 16px; 
+    color: black;
+    overflow: hidden;
+  }
+
+
+
+/* .fun-facts {
+display: flex;
+align-items: center;
+} */
+
+
+.text-container {
+flex: 1; 
+}
+
+
+img {
+    max-width: 10%; 
+    height: auto; 
+}
+  
+
+
+
+.homepage nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.nav-transparent {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), transparent);
+  font-size: 1.2em;
+  z-index: 100;
+}
+
+.nav-transparent .nav-link,
+.nav-transparent .navbar-brand,
+.nav-transparent p {
+  color: black;
+}
+
+.nav-transparent .navbar-brand {
+  font-weight: bold;
+}
+
+.nav-transparent .navbar-brand:hover,
+.nav-transparent .nav-link:hover {
+  color: rgb(239, 222, 205);
+}
+
+.homepage > section.container-fluid,
+.homepage > section.container {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 56px;
+}
+
+.demo-2 {
+  position: relative;
+}
+
+.demo-2-bg {
+  background-color: #facfe4; 
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+

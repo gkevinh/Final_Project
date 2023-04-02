@@ -19,7 +19,7 @@
   <div class="d-inline-block">
     <a class="btn btn-primary" href="/venue">Search</a>
   </div> -->
-  
+
   <div class="sticky-1">
   <div class="row justify-content-center">
     <nav class="navbar navbar-expand-md nav-transparent w-100">
@@ -45,11 +45,12 @@
   </div>
   </div>
 
+<div class="favorites-container">
   <div class="sticky-2">
     <h2>{{ user.fname }} {{ user.lname }}</h2>
-    <p style="color: white;"><strong>Email:</strong> {{ user.email }}</p>
+    <p style="color: white;"><strong>Email:</strong> {{ user.email }} </p>
   </div>
-  <div class="profile-block">
+  <div class="favorites-box">
   <h2 class="favs">Favorites</h2>
   {% if favorites %}
       {% for favorite in favorites %}
@@ -57,13 +58,12 @@
         <form action="/venue_without_fav/{{ favorite.venue.external_id.strip() }}">
           <button class="btn btn-link" type="submit">{{ favorite.venue.venue_name|safe }}</button>
         </form>
-        <li class="no-bullet">{{ '({}) {}-{}'.format(favorite.venue.phone[-10:-7], favorite.venue.phone[-7:-4], favorite.venue.phone[-4:]) }}</li>
-        <li class="no-bullet">{{ favorite.venue.address }}</li>
-        <div class="d-inline-block">
-        </div>
+        <li class="no-bullet" style="font-size: 13px;">{{ '({}) {}-{}'.format(favorite.venue.phone[-10:-7], favorite.venue.phone[-7:-4], favorite.venue.phone[-4:]) }}</li>
+        <li class="no-bullet" style="font-size: 13px;">{{ favorite.venue.address }}</li>
       {% endfor %}
   {% else %}
     <p>No favorites yet.</p>
   {% endif %}
   </div>
+</div>
 
