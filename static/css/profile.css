@@ -9,6 +9,7 @@ body {
   background-position: center center;
   font-family: 'Nunito', 'Helvetica', sans-serif;
   height: 100vh;
+  overflow: hidden;
 }
 
 
@@ -16,7 +17,7 @@ body {
 .favorites-container {
   display: flex;
   align-content: center;
-  height: 100px;
+  margin-top: 5rem;
   margin-left: 5rem;
   margin-right: 5rem;
   justify-content: space-between;
@@ -32,18 +33,17 @@ body {
 }
 
 .sticky-2 {
-  position: fixed;
-  /* height: 100px; */
   width: 50%;
-  padding-top: 5rem;
-  /* bottom: 0; */
   z-index: 999;
+  padding-left: 125px;
+  color:white;  
 }
 
 .list-unstyled {
   color:white;
+  height: 55vh;
+  overflow: auto;
 }
-
 
 
 h1 {
@@ -54,7 +54,7 @@ h1 {
 h2 {
   font-family: 'Nunito', 'Helvetica', sans-serif;
   font-size: 40px; 
-  font-weight: 600;
+  font-weight: 200;
   color:white;    
 }
 
@@ -66,18 +66,15 @@ h6,
 th {
   font-family: 'Nunito', 'Helvetica', sans-serif;
   font-size: 16px; 
-  font-weight: 400;
+  font-weight: 200;
   color: white;
 }
 
 
 .favs {
-  position: sticky;
-  height: 100px;
   color: white;
   font-size: 25px;
   text-decoration: underline;
-  z-index: 999;
 }
 
 
@@ -104,9 +101,8 @@ button.btn-link {
 }
 
 
-
 .homepage nav {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -131,7 +127,7 @@ button.btn-link {
 
 .nav-transparent .navbar-brand:hover,
 .nav-transparent .nav-link:hover {
-  color: rgb(215, 37, 222);
+  color: rgb(255, 0, 255);
 }
 
 .homepage > section.container-fluid,
@@ -154,7 +150,7 @@ button.btn-link {
 
 
 
-@media (max-width: 767px) { /* adjust styles for screens smaller than 768px (i.e. iPhones) */
+@media (max-width: 767px) {
   .navbar-collapse {
     display: block;
     text-align: center;
@@ -164,4 +160,10 @@ button.btn-link {
     display: block;
     margin-bottom: 10px;
   }
+}
+
+
+
+.btn-link:hover {
+  color: rgb(255, 0, 255);
 }

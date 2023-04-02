@@ -23,15 +23,15 @@ img{
 h1 {
     font-family: 'Nunito', 'Helvetica', sans-serif;
     font-size: 145px;
-    color: rgb(105,105,105);
-    font-weight: 800;
+    color: black;
+    font-weight: 200;
 }
   
 h2 {
     font-family: 'Nunito', 'Helvetica', sans-serif;
-    font-size: 26px; 
-    font-weight: 500;
-    color:rgb(105,105,105);
+    font-size: 30px; 
+    font-weight: 200;
+    color:black;  
 }
   
   
@@ -42,8 +42,8 @@ h6,
 th {
     font-family: 'Nunito', 'Helvetica', sans-serif;
     font-size: 30px; 
-    font-weight: 600;
-    color:rgb(105,105,105);
+    font-weight: 300;
+    color:black;  
 }
   
 
@@ -59,14 +59,7 @@ th {
 }
 }
 
-  
-.flash-messages {
-    margin-top: -20px;
-    color: black;
-    padding: -15px;
-    margin-bottom: 16px;
-}
-  
+
   
   
 .list-unstyled {
@@ -75,7 +68,7 @@ th {
   
   
 .bus-name {
-    font-size: 50px;
+    font-size: 75px;
     margin-top: 1in;
 }
   
