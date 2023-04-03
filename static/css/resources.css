@@ -2,36 +2,42 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('/static/img/searchresultspic2.jpeg');
+    background-image: url('/static/img/Info.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     height: 100vh;
-    background-color: aliceblue;
     font-family: 'Nunito', 'Helvetica', sans-serif;
-    font-size: 16px; 
-    color: black;
     overflow: hidden;
   }
 
 
 
-/* .fun-facts {
-display: flex;
-align-items: center;
-} */
+.h-font {
+  font-size: 35px;
+}
 
-
-.text-container {
-flex: 1; 
+.websites {
+  font-size: 25px;
 }
 
 
-img {
-    max-width: 10%; 
-    height: auto; 
+
+ul.websites a {
+  color: rgb(218,218,218);
 }
-  
+
+
+
+ul.websites a:hover {
+  color: white;
+}
+
+
+
+.container {
+  padding-top: 19rem;
+}
 
 
 
@@ -59,7 +65,7 @@ img {
 
 .nav-transparent .navbar-brand:hover,
 .nav-transparent .nav-link:hover {
-  color: rgb(239, 222, 205);
+  color: white;
 }
 
 .homepage > section.container-fluid,

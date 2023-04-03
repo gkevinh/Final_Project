@@ -37,7 +37,7 @@
 
 <div class="favorites-container">
   <div class="sticky-2">
-    <h2>{{ user.fname }} {{ user.lname }}</h2>
+    <h2>{{ user.fname }} {{ user.lname }}'s<br>Favorites</h2>
     <p style="color: white;">email: {{ user.email }} </p>
   </div>
   <div class="favorites-box">
@@ -55,7 +55,7 @@
         {% endfor %}
         </ul>
     {% else %}
-      <p>No favorites yet.</p>
+      <p>No favorites yet</p>
     {% endif %}
     </div>
 </div>

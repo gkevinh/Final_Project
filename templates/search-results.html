@@ -8,36 +8,36 @@
   integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link rel="stylesheet" href="/static/css/search-results.css">
 </head>
-  <br>
-  <div class="container">
-    <div class="row justify-content-center">
-      <nav class="navbar navbar-expand-md nav-transparent w-100">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/venue">SEARCH</a>
-          <div id="navbar" class="navbar-collapse collapse navbar-expand-lg">
+  <div class="row justify-content-center sticky-top">
+    <nav class="navbar navbar-expand-md nav-transparent w-100">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/venue">SEARCH</a>
+        <div id="navbar" class="navbar-collapse collapse navbar-expand-lg">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">FAVORITES</a>
+            </li>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="/profile">FAVORITES</a>
-              </li>
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="/resources">RESOURCES</a>
-                </li>
-              </ul>
-              <li class="nav-item">
-                <a class="nav-link" href="/logout">LOGOUT</a>
+                <a class="nav-link" href="/resources">RESOURCES</a>
               </li>
             </ul>
-          </div>
-          <p class="my-auto">
-            Ono Sweets
-          </p>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">LOGOUT</a>
+            </li>
+          </ul>
         </div>
-      </nav>
-    </div>
+        <p class="my-auto">
+          Ono Sweets
+        </p>
+      </div>
+    </nav>
+  </div>
+  <div class="container">
     <div id="event-search-results">
       <br>
       <h2 class="search">Search Results</h2>
+      <div class="list-results">
       <ul class="events-list list-group">
         {% for business in businesses %}
           <li class="list-group-item list-group-item-action">
@@ -47,7 +47,6 @@
                   <img src="{{ business['image_url'] }}" style="width: 200px; height: 200px; object-fit: cover;">
                 </a>
               </div>
-
               <div class="col-md-9">
                 <div class="row">
                   <div class="col-md-6">
@@ -56,7 +55,6 @@
                     </a>
                     <h6>phone: {{ '(' + business['phone'][2:5] + ') ' + business['phone'][5:8] + '-' + business['phone'][8:] }}</h6>
                   </div>
-
                   <div class="col-md-6">
                     <h6>rating: {{ business['rating'] }}</h6>
                     <h6>review count: {{ business['review_count'] }}</h6>
@@ -78,5 +76,6 @@
           </li>
         {% endfor %}
       </ul>
+    </div>
     </div>
   </div>
