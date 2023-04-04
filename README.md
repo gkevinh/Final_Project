@@ -32,3 +32,6 @@ HTML/CSS
 
 -Font Awesome
 
+![example-1](static/img/search-example.jpeg)
+![example-2](static/img/results-example.jpeg)
+![example-3](static/img/venue-example.jpeg)
