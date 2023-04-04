@@ -5,18 +5,31 @@
 ##### **Technologies**
 
 *Python
+
 *Flask
+
 *SQL
+
 *SQLAlchemy
+
 *Flask
+
 *Jinja
+
 *HTML/CSS
+
 *Bootstrap
+
 *Javascript 
+
 *AJAX
+
 *Yelp API
+
 *Google Maps API
+
 *Sweet Alert
+
 *Font Awesome
 
 ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
