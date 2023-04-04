@@ -32,8 +32,3 @@ HTML/CSS
 
 -Font Awesome
 
-![alt text](https://github.com/gkevinh/Final_Project/tree/main/static/img/search.png "Search")
-
-![alt text](https://github.com/gkevinh/Final_Project/tree/main/static/img/results.png "Results")
-
-![alt text](https://github.com/gkevinh/Final_Project/tree/main/static/img/venue.png "Venue")
