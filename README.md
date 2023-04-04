@@ -32,10 +32,9 @@
 
 *Font Awesome
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](https://github.com/gkevinh/Final_Project/tree/main/static/img/search.png "Search")
 
-Reference-style: 
-![alt text][logo]
+![alt text](https://github.com/gkevinh/Final_Project/tree/main/static/img/results.png "Results")
 
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+![alt text](https://github.com/gkevinh/Final_Project/tree/main/static/img/venue.png "Venue")
 
