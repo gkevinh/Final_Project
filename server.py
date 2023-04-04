@@ -89,7 +89,7 @@ def show_search_form():
 
 @app.route('/venues/search')
 def find_venues():
-    """Search for dessert places"""
+    """Search for dessert venues"""
 
     if 'user_email' not in session:
         flash('You need to log in to view venue details.')
@@ -234,7 +234,7 @@ def logout():
 
 @app.route('/venue_without_fav/<id>')
 def get_venue_details_without_fav(id):
-    """View the details of a venue."""
+    """View the details of a venue and delete a favorite."""
 
     if 'user_email' not in session:
         flash('You need to log in to view venue details.')

@@ -57,7 +57,7 @@ class Favorite(db.Model):
 
 
 def connect_to_db(app):
-    """Connect the database to our Flask app."""
+    """Connect the database to Flask app."""
 
     app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql:///test_db"
     app.config["SQLALCHEMY_ECHO"] = False

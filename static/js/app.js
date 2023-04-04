@@ -42,14 +42,17 @@ function initMap() {
                     directionsRenderer.setDirections(response);
                     displayDirections(response);
                 } else {
-                    alert(`Directions request unsuccessful due to: ${status}`);
+                    // alert(`Directions request unsuccessful due to: ${status}`);
+                    swal("Directions request unsuccessful");
                 }
             });
         }, () => {
-            alert("Failed to get the user's location");
+            // alert("Failed to get the user's location");
+            swal("Failed to get the user's location");
         });
     } else {
-        alert("Geolocation is not supported by this browser.");
+        // alert("Geolocation is not supported by this browser.");
+        swal("Geolocation is not supported by this browser");
     }
 }
 

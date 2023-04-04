@@ -62,8 +62,9 @@ def check_if_fav_exists(user_id, venue_id):
     return Favorite.query.filter_by(user_id=user_id, venue_id=venue_id).first()
 
 
-# def get_venue_id_by_external_id(external_id):
-#     return Venue.query.filter_by(external_id=external_id).first()
+def get_venue_id_by_external_id(external_id):
+    """Return venue object by external id."""
+    return Venue.query.filter_by(external_id=external_id).first()
 
 
 def get_favorite_by_id(id):
