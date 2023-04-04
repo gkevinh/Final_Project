@@ -16,7 +16,7 @@
 
 -Jinja
 
-HTML/CSS
+-HTML/CSS
 
 -Bootstrap
 
