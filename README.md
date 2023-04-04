@@ -1,8 +1,8 @@
 # Ono Sweets
 
-#### Ono Sweets is a fullstack web application designed for helping users find desserts on the islands of Hawaii.  Integration of the Yelp API allows users to search for dessert venues by zip-code or city. The Google Maps API then dynamically displays directions from the user's location to the dessert venue. The app also allows the user to save their favorite venues in their profile so they can reference them at a later time.  While focused  on Hawaii and it's desserts, the user also has the capability to search for desserts in any location worldwide. Aloha! 
+### Ono Sweets is a fullstack web application designed for helping users find desserts on the islands of Hawaii.  Integration of the Yelp API allows users to search for dessert venues by zip-code or city. The Google Maps API then dynamically displays directions from the user's location to the dessert venue. The app also allows the user to save their favorite venues in their profile so they can reference them at a later time.  While focused  on Hawaii and it's desserts, the user also has the capability to search for desserts in any location worldwide. Aloha! 
 
-#### **Technologies**
+### **Technologies**
 
 -Python
 
