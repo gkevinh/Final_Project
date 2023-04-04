@@ -11,10 +11,9 @@
 </head>
 <body>
 <div class="ono-sweets">
-  <h1>Ono Sweets</h1>
+  <h1>Ono Sweets</h1><br>
 </div>
     <div class="login">
-    <h2>Log In</h2>
     <form action="/login" method="POST">
       {% with message = get_flashed_messages() %}
       {% if message %}
@@ -23,21 +22,20 @@
         </ul>
       {% endif %}
       {% endwith %}
-      <p>
-        Email <input type="text" name="email">
+      <p class="email-pw">
+        <input type="text" name="email" class="input_">Email
+      </p>
+      <p class="email-pw">
+        <input type="password" name="password" class="input_">Password
       </p>
       <p>
-        Password <input type="password" name="password">
+        <input type="submit" value="Login" class="btn btn-primary class-1">
       </p>
-      <p>
-        <input type="submit" value="Submit" class="btn btn-primary class-1">
-      </p>
-      <br><br>
      <p>
       <a class="btn btn-primary class-1" href="/create_account">
         Create Account
       </a>
-    </p>
+      </p>
     </form>
     </div>
 </body>

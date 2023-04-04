@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html><head>
+{% extends "base.html" %}
+
+{% block head %}
+  {{ super() }}
   <title>Search Results</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link rel="stylesheet" href="/static/css/search-results.css">
-</head>
+{% endblock %}
+
+{% block content %}
   <div class="row justify-content-center sticky-top">
     <nav class="navbar navbar-expand-md nav-transparent w-100">
       <div class="container-fluid">
@@ -79,3 +78,4 @@
     </div>
     </div>
   </div>
+  {% endblock %}

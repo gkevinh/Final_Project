@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-    <title>Create Account</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/css/create-account.css">
-</head>
+{% block head %}
+  {{ super() }}
+  <title>Create Account</title>
+  <link rel="stylesheet" href="/static/css/create-account.css">
+{% endblock %}
 
+{% block content %}
 <div class="create">
 <h2>Create an Account</h2>
 <form action="/user" method="POST">
@@ -24,21 +20,25 @@
   {% endwith %}
   </p>
   <p>
-    First Name <input type="text" name="fname">
+    <label for="fname"  class="label_">First Name</label>
+    <input type="text" name="fname" class="input_">
   </p>    
   <p>
-    Last Name <input type="text" name="lname">
+    <label for="lname"  class="label_">Last Name</label>
+    <input type="text" name="lname" class="input-1">    
   </p>
   <p>
-    Email <input type="text" name="email">
+    <label for="email" class="label_">Email</label>
+    <input type="text" name="email" class="input-2">
   </p>
   <p>
-    Password <input type="password" name="password">
+    <label for="password" class="label_">Password</label>
+    <input type="password" name="password" class="input-3">
   </p>
   <p>
     <input type="submit" value="Submit" class="btn btn-primary class-1">
   </p>
 </form>
 </div>
-
 </html>
+{% endblock %}

@@ -27,9 +27,16 @@ h1 {
   text-shadow: 2px 2px 0 #000000, -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000; 
 }
 
-.login, h2 {
+.login, h2{
   text-align: center;
   font-size: 30px;
+  font-weight: 200;
+}
+
+
+h3 {
+  text-align: center;
+  font-size: 17px;
   font-weight: 200;
 }
 
@@ -71,9 +78,9 @@ h1 {
   
 
 .flashes {
-  font-family: Arial, sans-serif;
+  font-family: 'Nunito', 'Helvetica', sans-serif;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 200;
   color: #0c0c0c;
   padding-left: 0;
 }
@@ -90,4 +97,12 @@ h1 {
   background-color: transparent;
   border-color: transparent;
   color: whitesmoke
+}
+
+
+
+.email-pw {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

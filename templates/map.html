@@ -1,18 +1,19 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
-{% block title %}Directions | {{ business['name'] }}{% endblock %}
+{% block head %}
+  {{ super() }}
+  <title>Directions</title>
+  <link rel="stylesheet" href="/static/css/maps.css">
+{% endblock %}
 
-{% block body %}
 
-<!DOCTYPE html>
+{% block content %}
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Directions</title>
 
-    <link rel="stylesheet" href="/static/css/maps.css">
   </head>
   <body>
     <div id="map-container">
@@ -21,15 +22,6 @@
     </div>
     <input type=hidden id="lat" value="{{business['coordinates']['latitude']}}" />
     <input type=hidden id="long" value="{{business['coordinates']['longitude']}}" />
-
-    <!-- <div class="row">
-      <div class="col-12 text-center mb-3">
-        <a class="btn btn-primary" href="/venue">Search</a>
-      </div>
-      <div class="col-12 text-center">
-        <a class="btn btn-primary" href="/">Home</a>
-      </div>
-    </div> -->
     <div class="row">
       <div class="col-md-12 col-sm-12 text-center mb-3">
         <nav class="navbar navbar-expand-md nav-transparent flex-column col-md-6 col-sm-12">
