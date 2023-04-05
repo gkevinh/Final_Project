@@ -5,11 +5,14 @@ body {
   color: rgb(177, 175, 255); 
 }
 
+
+
 .homepage {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
+
 
 
 .header {
@@ -25,6 +28,8 @@ body {
   font-family: 'Fredoka';
 }
 
+
+
 .body {
   height: 160px;
   padding-top: 0.8em;
@@ -37,13 +42,19 @@ body {
   font-family: 'Fredoka';
 }
 
+
+
 .event-search-results {
   background-color: rgb(201, 238, 255);
 }
 
+
+
 .list-group-item {
   background-color: whitesmoke;
 }
+
+
 
 img{
   width:41%;
@@ -51,13 +62,20 @@ img{
   border:1pt solid rgb(50, 48, 48);
 }
 
+
+
 .cover{
   object-fit: cover;
   object-position: center;
 }
+
+
+
 .contain{
   object-fit: contain;
 }
+
+
 
 pre {
   height: 150px;
@@ -66,11 +84,15 @@ pre {
   resize: vertical;
 }
 
+
+
 h1 {
   font-family: 'Fredoka One';
   font-size: 145px;
   color: rgb(251, 207, 252)
 }
+
+
 
 h2 {
   font-family: 'Fredoka One';
@@ -79,6 +101,7 @@ h2 {
   color:rgb(127, 120, 210);
   text-shadow: 2px 2px #000;
 }
+
 
 
 h3,
@@ -92,11 +115,14 @@ th {
 }
 
 
+
 .row > * {
   padding-left: 0;
   padding-right: 0;
   color: rgb(127, 120, 210);
 }
+
+
 
 .row > .above {
   margin-bottom: 0;
@@ -105,9 +131,11 @@ th {
 }
 
 
+
 .results {
   color: rgb(127, 120, 210)
 }
+
 
 
 button, input[type="button"], input[type="submit"] { 
@@ -119,6 +147,7 @@ button, input[type="button"], input[type="submit"] {
   border:1px solid; 
   border-color: grey
 } 
+
 
 
 .btn-primary, .favorite-btn {
@@ -134,15 +163,20 @@ button, input[type="button"], input[type="submit"] {
 }
 
 
+
 .btn-primary:hover {
   background-color: grey;
   color: white;
 }
 
+
+
 .no-bullet {
   list-style-type: none;
   margin-left: 10px; 
 }
+
+
 
 .btn.btn-primary.btn-sm {
   font-size: 5px;
@@ -155,10 +189,12 @@ button, input[type="button"], input[type="submit"] {
 }
 
 
+
 .btn.btn-primary.btn-sm:focus {
   box-shadow: none;
   outline: none;
 }
+
 
 
 button.add-favorite:focus,
@@ -168,6 +204,7 @@ button.add-favorite:active {
   background-color: white;
   color: grey;
 }
+
 
 
 .form-container {
@@ -181,16 +218,22 @@ button.add-favorite:active {
   padding-left: 50px;
 }
 
+
+
 .homepage-container {
   display: flex;
   flex-direction: column;
 }
+
+
 
 @media only screen and (min-width: 768px) {
   .homepage-container {
     flex-direction: row;
   }
 }
+
+
 
 .ono-sweets {
   padding-top: 10px;
@@ -202,11 +245,14 @@ button.add-favorite:active {
   margin-top: 20px;
 }
 
+
+
 .resources-pics {
     width: 10%;
     height: auto;
     border: 1pt solid rgb(50, 48, 48);
 }
+
 
 
 .homepage-fields {
@@ -217,6 +263,7 @@ button.add-favorite:active {
 }
 
 
+
 .flash-messages {
   margin-top: -20px;
   color: rgb(207, 241, 239);
@@ -225,17 +272,24 @@ button.add-favorite:active {
 }
 
 
+
 .form-label {
   color: grey
 }
+
+
 
 .favs {
   color: rgb(127, 120, 210);
 }
 
+
+
 .list-unstyled {
   color: rgb(127, 120, 210);
 }
+
+
 
 .search {
   padding-top: 5rem;
@@ -243,14 +297,17 @@ button.add-favorite:active {
 }
 
 
+
 .bus-name {
   font-size: 50px;
 }
 
 
+
 #venue-container.container3 {
   padding-left: 10rem;
 }
+
 
 
 .fun-facts {
@@ -282,6 +339,8 @@ button.add-favorite:active {
   touch-action: manipulation;
 }
 
+
+
 .button-89:hover,
 .button-89:focus-visible{
   --_p: 0px;
@@ -289,10 +348,13 @@ button.add-favorite:active {
   outline-offset: .05em;
 }
 
+
+
 .button-89:active {
   background: var(--color);
   color: #fff;
 }
+
 
 
 .profile-block {

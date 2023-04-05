@@ -12,10 +12,13 @@ body {
   overflow: hidden;
 }
 
+
+
 h1 {
   font-size: 150px;
   font-weight: 800;
 }
+
 
 
 .ono-sweets {
@@ -27,6 +30,8 @@ h1 {
   text-shadow: 2px 2px 0 #000000, -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000; 
 }
 
+
+
 .login, h2{
   text-align: center;
   font-size: 30px;
@@ -34,11 +39,13 @@ h1 {
 }
 
 
+
 h3 {
   text-align: center;
   font-size: 17px;
   font-weight: 200;
 }
+
 
 
 .class-1 {
@@ -64,6 +71,8 @@ h3 {
     touch-action: manipulation;
   }
 
+
+
 .class-1:hover,
 .class-1:focus-visible{
   --_p: 0px;
@@ -71,11 +80,14 @@ h3 {
   outline-offset: .05em;
 }
 
+
+
 .class-1:active {
   background: var(--color);
   color: #fff;
 }
-  
+
+
 
 .flashes {
   font-family: 'Nunito', 'Helvetica', sans-serif;
@@ -86,12 +98,15 @@ h3 {
 }
 
 
+
 .btn-primary {
   color: #fff;
   background-color: transparent; 
   border-color: transparent;
   font-size: 15px;
 }
+
+
 
 .btn-primary:hover {
   background-color: transparent;

@@ -10,31 +10,35 @@ body {
     font-family: 'Nunito', 'Helvetica', sans-serif;
     overflow: hidden;
   }
-  
-  
+
+
+
 img{
     width:85%;
     height:auto;
     border:1pt solid rgb(50, 48, 48);
 }
-  
 
-  
+
+
 h1 {
     font-family: 'Nunito', 'Helvetica', sans-serif;
     font-size: 145px;
     color: black;
     font-weight: 200;
 }
-  
+
+
+
 h2 {
     font-family: 'Nunito', 'Helvetica', sans-serif;
     font-size: 30px; 
     font-weight: 200;
     color:black;  
 }
-  
-  
+
+
+
 h3,
 h4,
 h5,
@@ -45,14 +49,16 @@ th {
     font-weight: 300;
     color:black;  
 }
-  
+
+
 
 .container {
     align-items: center;
     max-width: 1100px;
 }
 
-  
+
+
 @media only screen and (min-width: 768px) {
     .homepage-container {
       flex-direction: row;
@@ -60,18 +66,18 @@ th {
 }
 
 
-  
-  
+
 .list-unstyled {
     color: rgb(127, 120, 210);
 }
-  
-  
+
+
+
 .bus-name {
     font-size: 75px;
     margin-top: 1in;
 }
-  
+
 
 
 .h_container{
@@ -81,10 +87,14 @@ th {
     display: inline;
 }
 
+
+
 #heart{
     font-size: 50px;
     color:red;
 }
+
+
 #heart:hover{
     color:rgb(4,217,255)
 }
@@ -96,42 +106,56 @@ th {
     top: 0;
     left: 0;
   }
-  
-  .nav-transparent {
+
+
+
+.nav-transparent {
     background: linear-gradient(rgba(0, 0, 0, 0.5), transparent);
     font-size: 1.2em;
     z-index: 100;
-  }
-  
-  .nav-transparent .nav-link,
-  .nav-transparent .navbar-brand,
-  .nav-transparent p {
+}
+
+
+
+.nav-transparent .nav-link,
+.nav-transparent .navbar-brand,
+.nav-transparent p {
     color: black;
-  }
-  
-  .nav-transparent .navbar-brand {
+}
+
+
+
+.nav-transparent .navbar-brand {
     font-weight: bold;
-  }
-  
-  .nav-transparent .navbar-brand:hover,
-  .nav-transparent .nav-link:hover {
+}
+
+
+
+.nav-transparent .navbar-brand:hover,
+.nav-transparent .nav-link:hover {
     color: rgb(4,217,255)
-  }
-  
-  .homepage > section.container-fluid,
-  .homepage > section.container {
+}
+
+
+
+.homepage > section.container-fluid,
+.homepage > section.container {
     width: 100vw;
     height: 100vh;
     padding-top: 56px;
   }
-  
-  .demo-2 {
+
+
+
+.demo-2 {
     position: relative;
-  }
-  
-  .demo-2-bg {
+}
+
+
+
+.demo-2-bg {
     background-color: #facfe4; 
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-  }
+}

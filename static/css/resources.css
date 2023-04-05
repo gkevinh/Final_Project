@@ -17,6 +17,8 @@ body {
   font-size: 35px;
 }
 
+
+
 .websites {
   font-size: 25px;
 }
@@ -47,11 +49,15 @@ ul.websites a:hover {
   left: 0;
 }
 
+
+
 .nav-transparent {
   background: linear-gradient(rgba(0, 0, 0, 0.5), transparent);
   font-size: 1.2em;
   z-index: 100;
 }
+
+
 
 .nav-transparent .nav-link,
 .nav-transparent .navbar-brand,
@@ -59,14 +65,20 @@ ul.websites a:hover {
   color: black;
 }
 
+
+
 .nav-transparent .navbar-brand {
   font-weight: bold;
 }
+
+
 
 .nav-transparent .navbar-brand:hover,
 .nav-transparent .nav-link:hover {
   color: white;
 }
+
+
 
 .homepage > section.container-fluid,
 .homepage > section.container {
@@ -75,9 +87,13 @@ ul.websites a:hover {
   padding-top: 56px;
 }
 
+
+
 .demo-2 {
   position: relative;
 }
+
+
 
 .demo-2-bg {
   background-color: #facfe4; 
@@ -85,4 +101,3 @@ ul.websites a:hover {
   background-position: center;
   background-size: cover;
 }
-

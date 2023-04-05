@@ -12,10 +12,13 @@ body {
   }
 
 
+
 h2 {
   font-weight: 200;
   font-size: 45px;
 }
+
+
 
 .create {
     font-size: 25px;
@@ -25,6 +28,7 @@ h2 {
     font-weight: 200;
     color: white;
 }
+
 
 
 .class-1 {
@@ -63,6 +67,7 @@ color: #fff;
 }
 
 
+
 .create .flashes h4 {
   font-family: 'Nunito', 'Helvetica', sans-serif;
   font-size: 16px;
@@ -72,12 +77,15 @@ color: #fff;
 }
 
 
+
 .btn-primary {
   color: white;
   background-color: transparent; 
   border-color: transparent;
   font-size: 15px;
 }
+
+
 
 .btn-primary:hover {
   background-color: transparent;

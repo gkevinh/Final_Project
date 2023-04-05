@@ -7,13 +7,17 @@ body {
 }
 
 
+
 .event-search-results {
   background-color: aliceblue
 }
 
+
+
 .list-group-item {
   background-color: transparent;
 }
+
 
 
 img{
@@ -22,13 +26,20 @@ img{
   border:1pt solid rgb(50, 48, 48);
 }
 
+
+
 .cover{
   object-fit: cover;
   object-position: center;
 }
+
+
+
 .contain{
   object-fit: contain;
 }
+
+
 
 pre {
   height: 150px;
@@ -38,6 +49,7 @@ pre {
 }
 
 
+
 h2 {
   font-family: 'Nunito', 'Helvetica', sans-serif;
   font-size: 26px; 
@@ -45,6 +57,7 @@ h2 {
   color:black;
   font-weight: 500px;
 }
+
 
 
 h3,
@@ -69,6 +82,7 @@ th {
 }
 
 
+
 /* @media only screen and (min-width: 768px) {
   .homepage-container {
     display: flex;
@@ -82,6 +96,7 @@ th {
   font-size: 35px;
   font-weight: 300;
 }
+
 
 
 .sticky-top {
@@ -98,12 +113,16 @@ th {
   left: 0;
 }
 
+
+
 .nav-transparent {
   position: sticky;
   background: linear-gradient(rgba(0, 0, 0, 0.5), transparent);
   font-size: 1.2em;
   z-index: 100;
 }
+
+
 
 .nav-transparent .nav-link,
 .nav-transparent .navbar-brand,
@@ -115,10 +134,14 @@ th {
   font-weight: bold;
 }
 
+
+
 .nav-transparent .navbar-brand:hover,
 .nav-transparent .nav-link:hover {
   color: white;
 }
+
+
 
 .homepage > section.container-fluid,
 .homepage > section.container {
@@ -127,9 +150,13 @@ th {
   padding-top: 56px;
 }
 
+
+
 .demo-2 {
   position: relative;
 }
+
+
 
 .demo-2-bg {
   background-color: #facfe4; 
@@ -139,11 +166,13 @@ th {
 }
 
 
+
 .business-name {
   color: black;
   font-weight: bold;
   font-size: 18px;
 }
+
 
 
 .list-group-item:hover {

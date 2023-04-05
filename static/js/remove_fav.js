@@ -45,3 +45,4 @@ removeFavoriteButton.addEventListener('click', (evt) => {
       swal("Cannot remove. Not a favorite.");   
     });
   }
+  

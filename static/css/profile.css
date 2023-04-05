@@ -24,6 +24,7 @@ body {
 }
 
 
+
 .sticky-1 {
   position: sticky;
   height: 100px;
@@ -32,12 +33,16 @@ body {
   z-index: 999;
 }
 
+
+
 .sticky-2 {
   width: 50%;
   z-index: 999;
   padding-left: 125px;
   color:white;  
 }
+
+
 
 .list-unstyled {
   color:white;
@@ -46,10 +51,13 @@ body {
 }
 
 
+
 h1 {
   font-family: 'Nunito', 'Helvetica', sans-serif;
   color:white;
 }
+
+
 
 h2 {
   font-family: 'Nunito', 'Helvetica', sans-serif;
@@ -57,6 +65,7 @@ h2 {
   font-weight: 200;
   color:white;    
 }
+
 
 
 h3,
@@ -71,11 +80,13 @@ th {
 }
 
 
+
 .favs {
   color: white;
   font-size: 25px;
   text-decoration: underline;
 }
+
 
 
 .flash-messages {
@@ -90,15 +101,18 @@ th {
 }
 
 
+
 .favorites-box {
   width: 50%;
   text-align: center;
 }
 
 
+
 button.btn-link {
   color: white;
 }
+
 
 
 .homepage nav {
@@ -109,11 +123,15 @@ button.btn-link {
   z-index: 999; 
 }
 
+
+
 .nav-transparent {
   background: linear-gradient(rgba(0, 0, 0, 0.3), transparent);
   font-size: 1.2em;
   z-index: 100;
 }
+
+
 
 .nav-transparent .nav-link,
 .nav-transparent .navbar-brand,
@@ -121,14 +139,20 @@ button.btn-link {
   color: white;
 }
 
+
+
 .nav-transparent .navbar-brand {
   font-weight: bold;
 }
+
+
 
 .nav-transparent .navbar-brand:hover,
 .nav-transparent .nav-link:hover {
   color: rgb(255, 0, 255);
 }
+
+
 
 .homepage > section.container-fluid,
 .homepage > section.container {
@@ -137,9 +161,13 @@ button.btn-link {
   padding-top: 56px;
 }
 
+
+
 .demo-2 {
   position: relative;
 }
+
+
 
 .demo-2-bg {
   background-color: #facfe4; 
