@@ -4,33 +4,30 @@
 
 ### **Technologies**
 
+-SQL / PostgreSQL / SQLAlchemy
+
 -Python
-
--Flask
-
--SQL
-
--SQLAlchemy
 
 -Flask
 
 -Jinja
 
--HTML/CSS
-
--Bootstrap
-
 -Javascript 
 
 -AJAX
 
--Yelp API
+-Bootstrap
 
--Google Maps API
+-HTML/CSS
 
 -Sweet Alert
 
 -Font Awesome
+
+-[Yelp API](https://docs.developer.yelp.com/docs/fusion-intro)
+
+-[Google Maps API](https://developers.google.com/maps/documentation)
+
 
 ![example-1](static/img/search-example.jpeg)
 ![example-2](static/img/results-example.jpeg)
