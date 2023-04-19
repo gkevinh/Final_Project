@@ -32,3 +32,46 @@
 ![example-1](static/img/search-example.jpeg)
 ![example-2](static/img/results-example.jpeg)
 ![example-3](static/img/venue-example.jpeg)
+
+
+Installation
+
+To have this app running on your local computer, please follow the below steps:
+
+Clone repository:
+
+
+$ git clone https://github.com/gkevinh/Final_Project
+
+
+Create and activate a virtual environment:
+
+
+$ pip3 install virtualenv
+$ virtualenv env
+$ source env/bin/activate
+
+
+Install dependencies:
+
+
+(env) $ pip3 install -r requirements.txt
+
+
+Create database:
+
+
+(env) $ createdb test_db
+
+
+Create database tables:
+
+
+(env) $ python3 -i model.py
+>>> db.create_all()
+
+
+Start backend server:
+
+
+(env) $ python3 server.py
