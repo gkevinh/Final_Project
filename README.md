@@ -34,7 +34,7 @@
 ![example-3](static/img/venue-example.jpeg)
 
 
-**INSTALLATION:**
+## **INSTALLATION:**
 
 To have this app running on your local computer, please follow the below steps:
 
