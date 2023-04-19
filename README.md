@@ -47,9 +47,9 @@ $ git clone https://github.com/gkevinh/Final_Project
 CREATE AND ACTIVATE A VIRTUAL ENVIRONMENT:
 
 
-$ pip3 install virtualenv
-$ virtualenv env
-$ source env/bin/activate
+-$ pip3 install virtualenv
+-$ virtualenv env
+-$ source env/bin/activate
 
 
 INSTALL DEPENDENCIES:
