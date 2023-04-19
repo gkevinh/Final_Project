@@ -48,7 +48,9 @@ CREATE AND ACTIVATE A VIRTUAL ENVIRONMENT:
 
 
 $ pip3 install virtualenv
+
 $ virtualenv env
+
 $ source env/bin/activate
 
 
